@@ -9,6 +9,8 @@ PROJECT_ROOT: Path = Path(__file__).resolve().parent
 DATA_DIR: Path = PROJECT_ROOT / "data"
 BOOKS_CSV: Path = DATA_DIR / "books.csv"
 VAL_IDS_TXT: Path = DATA_DIR / "validation_set.txt"
+IMAGES_DIR: Path = DATA_DIR / "images"
+
 
 # Results
 RESULTS_DIR: Path = PROJECT_ROOT / "results"
