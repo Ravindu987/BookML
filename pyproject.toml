@@ -8,9 +8,13 @@ dependencies = [
     "nltk>=3.9",
     "numpy>=2.0",
     "pandas>=2.2",
+    "pillow>=10.0",
     "scikit-learn>=1.6",
+    "torch>=2.0",
+    "torchvision>=0.15",
     "xgboost>=3.0",
 ]
+
 
 [project.optional-dependencies]
 # Needed only for the "sentence_embeddings" feature (pulls in PyTorch).
