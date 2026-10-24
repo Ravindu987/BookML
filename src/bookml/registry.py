@@ -8,7 +8,8 @@ import pandas as pd
 
 # --- Feature functions -------------------------------------------------------
 from bookml.features.embeddings import add_sentence_embeddings
-from bookml.features.images import add_image_resnet18_vectors
+from bookml.features.images import add_image_basic_features, add_image_resnet18_vectors
+from bookml.features.multimodal import add_multimodal_concat_features
 from bookml.features.tabular import add_rating_numeric
 from bookml.features.text import add_cleaned_description
 
@@ -39,8 +40,9 @@ FEATURE_REGISTRY: dict[str, FeatureEntry] = {
     "clean_description": add_cleaned_description,    # description -> cleaned_description
     "sentence_embeddings": add_sentence_embeddings,  # description -> emb_0..emb_383
     "imageResNet18Vector": add_image_resnet18_vectors,  # image -> img_resnet18_0..img_resnet18_511
+    "image_basic_features": add_image_basic_features,  # handcrafted 38-d visual features
+    "multimodal_concatenated_feature": add_multimodal_concat_features,  # concatenated text emb + image vector (896-d)
 }
-
 
 
 # =============================================================================

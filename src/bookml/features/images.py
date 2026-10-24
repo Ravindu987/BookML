@@ -93,7 +93,7 @@ def _load_cached_embeddings(expected_count: int, cache_path: Path) -> np.ndarray
         data = np.load(cache_path, allow_pickle=True)
         embeddings = data["embeddings"]
         if len(embeddings) == expected_count:
-            logger.info("Loaded ResNet-18 image vectors from cache '%s'.", cache_path.name)
+            logger.info("Loaded cached features from '%s'.", cache_path.name)
             return np.ascontiguousarray(embeddings, dtype=np.float32)
     except Exception as e:
         logger.warning("Failed to load image cache '%s': %s. Recomputing.", cache_path, e)
@@ -103,7 +103,73 @@ def _load_cached_embeddings(expected_count: int, cache_path: Path) -> np.ndarray
 def _save_embeddings_cache(embeddings: np.ndarray, cache_path: Path) -> None:
     cache_path.parent.mkdir(parents=True, exist_ok=True)
     np.savez_compressed(cache_path, embeddings=embeddings)
-    logger.info("Saved ResNet-18 image vector cache to '%s'.", cache_path.name)
+    logger.info("Saved feature cache to '%s'.", cache_path.name)
+
+
+BASIC_IMAGE_COLUMNS: list[str] = [
+    "img_r_mean", "img_g_mean", "img_b_mean",
+    "img_r_std", "img_g_std", "img_b_std",
+    "img_h_mean", "img_s_mean", "img_v_mean",
+    "img_h_std", "img_s_std", "img_v_std",
+    "img_lum_mean", "img_contrast",
+    *[f"img_r_hist_{i}" for i in range(8)],
+    *[f"img_g_hist_{i}" for i in range(8)],
+    *[f"img_b_hist_{i}" for i in range(8)],
+]
+
+BASIC_IMAGE_CACHE_PATH: Path = DATA_DIR / "image_basic_features.npz"
+
+
+def extract_basic_image_features(image_paths: list[Path]) -> np.ndarray:
+    feature_list: list[np.ndarray] = []
+    logger.info("Extracting 38 handcrafted visual features for %d images...", len(image_paths))
+
+    for path in image_paths:
+        with Image.open(path).convert("RGB") as img:
+            arr_rgb = np.array(img, dtype=np.float32) / 255.0
+            r_mean, g_mean, b_mean = arr_rgb.mean(axis=(0, 1))
+            r_std, g_std, b_std = arr_rgb.std(axis=(0, 1))
+            img_hsv = img.convert("HSV")
+            arr_hsv = np.array(img_hsv, dtype=np.float32) / 255.0
+            h_mean, s_mean, v_mean = arr_hsv.mean(axis=(0, 1))
+            h_std, s_std, v_std = arr_hsv.std(axis=(0, 1))
+            gray = img.convert("L")
+            arr_gray = np.array(gray, dtype=np.float32) / 255.0
+            lum_mean = arr_gray.mean()
+            contrast = arr_gray.std()
+            r_hist, _ = np.histogram(arr_rgb[:, :, 0], bins=8, range=(0, 1), density=True)
+            g_hist, _ = np.histogram(arr_rgb[:, :, 1], bins=8, range=(0, 1), density=True)
+            b_hist, _ = np.histogram(arr_rgb[:, :, 2], bins=8, range=(0, 1), density=True)
+
+            vec = np.hstack([
+                [r_mean, g_mean, b_mean, r_std, g_std, b_std],
+                [h_mean, s_mean, v_mean, h_std, s_std, v_std],
+                [lum_mean, contrast],
+                r_hist,
+                g_hist,
+                b_hist,
+            ])
+            feature_list.append(vec)
+
+    return np.ascontiguousarray(np.array(feature_list), dtype=np.float32)
+
+
+def add_image_basic_features(df: pd.DataFrame) -> pd.DataFrame:
+    features = _load_cached_embeddings(len(df), BASIC_IMAGE_CACHE_PATH)
+
+    if features is None:
+        images_dir = IMAGES_DIR
+        if not images_dir.exists():
+            root_candidate = DATA_DIR.parents[3] / "data" / "images"
+            if root_candidate.exists():
+                images_dir = root_candidate
+
+        image_paths = [resolve_image_path(row, images_dir) for _, row in df.iterrows()]
+        features = extract_basic_image_features(image_paths)
+        _save_embeddings_cache(features, BASIC_IMAGE_CACHE_PATH)
+
+    feat_df = pd.DataFrame(features, index=df.index, columns=BASIC_IMAGE_COLUMNS)
+    return pd.concat([df, feat_df], axis=1)
 
 
 def add_image_resnet18_vectors(df: pd.DataFrame) -> pd.DataFrame:
@@ -123,3 +189,4 @@ def add_image_resnet18_vectors(df: pd.DataFrame) -> pd.DataFrame:
     cols = [f"{IMAGE_FEATURE_PREFIX}{i}" for i in range(embeddings.shape[1])]
     img_df = pd.DataFrame(embeddings, index=df.index, columns=cols)
     return pd.concat([df, img_df], axis=1)
+
