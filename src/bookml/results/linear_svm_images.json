@@ -1,0 +1,95 @@
+{
+  "experiment": "linear_svm_images",
+  "timestamp": "2026-10-24T22:02:35",
+  "config": {
+    "name": "linear_svm_images",
+    "features": [
+      "imageResNet18Vector"
+    ],
+    "model": "linear_svm",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.5647869674185463,
+  "best_params": {
+    "classifier__C": 0.01,
+    "classifier__class_weight": "balanced"
+  },
+  "validation_metrics": {
+    "accuracy": 0.5555555555555556,
+    "precision": 0.375,
+    "recall": 0.3,
+    "f1": 0.3333333333333333,
+    "roc_auc": 0.5647058823529412
+  },
+  "confusion_matrix": {
+    "tp": 3,
+    "tn": 12,
+    "fp": 5,
+    "fn": 7
+  },
+  "top_features": [
+    [
+      "img_resnet18_413",
+      -0.0978604039820948
+    ],
+    [
+      "img_resnet18_466",
+      0.09322188555476973
+    ],
+    [
+      "img_resnet18_195",
+      -0.08013701961706506
+    ],
+    [
+      "img_resnet18_42",
+      0.07902694322442141
+    ],
+    [
+      "img_resnet18_453",
+      -0.07840645540256568
+    ],
+    [
+      "img_resnet18_465",
+      -0.0774833406976774
+    ],
+    [
+      "img_resnet18_32",
+      -0.07720655387198133
+    ],
+    [
+      "img_resnet18_174",
+      0.07717637185730783
+    ],
+    [
+      "img_resnet18_71",
+      -0.07518145281984487
+    ],
+    [
+      "img_resnet18_305",
+      0.07215869202047484
+    ],
+    [
+      "img_resnet18_49",
+      -0.0679196367765534
+    ],
+    [
+      "img_resnet18_176",
+      -0.0675433561394313
+    ],
+    [
+      "img_resnet18_281",
+      -0.06672572294974652
+    ],
+    [
+      "img_resnet18_511",
+      0.06666252563105399
+    ],
+    [
+      "img_resnet18_445",
+      -0.0665855738515737
+    ]
+  ]
+}

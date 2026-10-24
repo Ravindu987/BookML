@@ -1,0 +1,99 @@
+{
+  "experiment": "xgb_multimodal_concat",
+  "timestamp": "2026-10-24T22:06:58",
+  "config": {
+    "name": "xgb_multimodal_concat",
+    "features": [
+      "multimodal_concatenated_feature"
+    ],
+    "model": "xgb",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.793922934426367,
+  "best_params": {
+    "colsample_bytree": 1.0,
+    "learning_rate": 0.1,
+    "max_depth": 4,
+    "n_estimators": 60,
+    "scale_pos_weight": 1.69,
+    "subsample": 0.8
+  },
+  "validation_metrics": {
+    "accuracy": 0.7037037037037037,
+    "precision": 0.75,
+    "recall": 0.3,
+    "f1": 0.42857142857142855,
+    "roc_auc": 0.7411764705882353
+  },
+  "confusion_matrix": {
+    "tp": 3,
+    "tn": 16,
+    "fp": 1,
+    "fn": 7
+  },
+  "top_features": [
+    [
+      "multimodal_concat_507",
+      0.025647683069109917
+    ],
+    [
+      "multimodal_concat_43",
+      0.02552208863198757
+    ],
+    [
+      "multimodal_concat_876",
+      0.024460962042212486
+    ],
+    [
+      "multimodal_concat_862",
+      0.01964300498366356
+    ],
+    [
+      "multimodal_concat_476",
+      0.019599223509430885
+    ],
+    [
+      "multimodal_concat_102",
+      0.019331932067871094
+    ],
+    [
+      "multimodal_concat_323",
+      0.01864146813750267
+    ],
+    [
+      "multimodal_concat_319",
+      0.017900653183460236
+    ],
+    [
+      "multimodal_concat_183",
+      0.016929956153035164
+    ],
+    [
+      "multimodal_concat_173",
+      0.016688620671629906
+    ],
+    [
+      "multimodal_concat_152",
+      0.0165263582020998
+    ],
+    [
+      "multimodal_concat_266",
+      0.015182528644800186
+    ],
+    [
+      "multimodal_concat_457",
+      0.014978190883994102
+    ],
+    [
+      "multimodal_concat_212",
+      0.014207398518919945
+    ],
+    [
+      "multimodal_concat_142",
+      0.013692264445126057
+    ]
+  ]
+}

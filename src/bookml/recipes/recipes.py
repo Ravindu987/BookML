@@ -91,12 +91,6 @@ EXPERIMENTS: dict[str, dict[str, Any]] = {
         "model": "rf",
         "model_params": {"tune": True, "random_state": 41},
     },
-    "xgb_images": {
-        "name": "xgb_images",
-        "features": ["imageResNet18Vector"],
-        "model": "xgb",
-        "model_params": {"tune": True, "random_state": 41},
-    },
     "svm_basic_images": {
         "name": "svm_basic_images",
         "features": ["image_basic_features"],
