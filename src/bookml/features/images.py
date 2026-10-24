@@ -26,12 +26,8 @@ def resolve_image_path(row: pd.Series, images_dir: Path) -> Path:
     title = str(row.get("title", ""))
     category = str(row.get("category", ""))
 
-    if "11/22" in title:
-        candidate = images_dir / "Fiction_11_22_63.jpg"
-        if candidate.exists():
-            return candidate
-
-    sanitized = re.sub(r"[^a-zA-Z0-9_-]", "_", title)[:50]
+    norm_title = title.replace("11/22/63", "11/22/1963")
+    sanitized = re.sub(r"[^a-zA-Z0-9_-]", "_", norm_title)[:50]
     candidate = images_dir / f"{category}_{sanitized}.jpg"
     if candidate.exists():
         return candidate

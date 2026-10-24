@@ -9,8 +9,9 @@ import csv
 import platform
 import re
 import sys
-import time
+from pathlib import Path
 from urllib.parse import urljoin
+from urllib.request import Request, urlopen
 
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
@@ -23,6 +24,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 BASE_URL = "https://books.toscrape.com/"
 TARGET_CATEGORIES = ("Fiction", "Nonfiction")
 DEFAULT_OUTPUT = "src/bookml/data/books_all.csv"
+DEFAULT_IMAGES_DIR = (
+    Path("src/bookml/data/images")
+    if Path("src/bookml").exists()
+    else Path("data/images")
+)
 WAIT_SECONDS = 15
 
 
@@ -184,6 +190,27 @@ def scrape_product_page(driver: webdriver.Chrome, category: str) -> dict[str, st
     return row
 
 
+def get_image_filename(title: str, category: str) -> str:
+    norm_title = title.replace("11/22/63", "11/22/1963")
+    sanitized = re.sub(r"[^a-zA-Z0-9_-]", "_", norm_title)[:50]
+    return f"{category}_{sanitized}.jpg"
+
+
+def download_image(image_url: str, dest_path: Path, timeout: int = 15) -> bool:
+    if not image_url:
+        return False
+    try:
+        req = Request(image_url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"})
+        with urlopen(req, timeout=timeout) as response:
+            data = response.read()
+        dest_path.parent.mkdir(parents=True, exist_ok=True)
+        dest_path.write_bytes(data)
+        return True
+    except Exception as exc:
+        print(f"  Failed to download image {image_url}: {exc}", file=sys.stderr)
+        return False
+
+
 def write_csv(rows: list[dict[str, str]], path: str) -> None:
     fieldnames: list[str] = []
     seen: set[str] = set()
@@ -203,6 +230,7 @@ def write_csv(rows: list[dict[str, str]], path: str) -> None:
         "number_of_reviews",
         "breadcrumb",
         "image_url",
+        "image_file",
         "url",
     ]
     for name in preferred:
@@ -221,9 +249,16 @@ def write_csv(rows: list[dict[str, str]], path: str) -> None:
         writer.writerows(rows)
 
 
-def scrape():
+def scrape(
+    output_path: str = DEFAULT_OUTPUT,
+    images_dir: Path | str = DEFAULT_IMAGES_DIR,
+    download_images: bool = True,
+):
     driver = create_driver()
     all_rows: list[dict[str, str]] = []
+    img_dest_dir = Path(images_dir)
+    if download_images:
+        img_dest_dir.mkdir(parents=True, exist_ok=True)
 
     try:
         category_urls = get_category_urls(driver)
@@ -238,14 +273,24 @@ def scrape():
                 try:
                     row = scrape_product_page(driver, category)
                     row["url"] = book_url
+
+                    # Download book cover image using standardized naming convention
+                    if download_images and row.get("image_url"):
+                        img_filename = get_image_filename(row.get("title", ""), category)
+                        img_path = img_dest_dir / img_filename
+                        download_image(row["image_url"], img_path)
+                        row["image_file"] = img_filename
+
                     all_rows.append(row)
                 except TimeoutException:
                     print(f"  Skipped (timeout): {book_url}", file=sys.stderr)
                 if index % 20 == 0:
                     print(f"  {category}: {index}/{len(book_urls)} scraped")
 
-        write_csv(all_rows, DEFAULT_OUTPUT)
-        print(f"Wrote {len(all_rows)} rows to {DEFAULT_OUTPUT}")
+        write_csv(all_rows, output_path)
+        print(f"Wrote {len(all_rows)} rows to {output_path}")
+        if download_images:
+            print(f"Saved cover images to {img_dest_dir}")
 
     finally:
         driver.quit()
