@@ -12,6 +12,7 @@ dependencies = [
     "scikit-learn>=1.6",
     "torch>=2.0",
     "torchvision>=0.15",
+    "selenium>=4.51.0",
     "xgboost>=3.0",
 ]
 
