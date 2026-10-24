@@ -14,15 +14,22 @@ from typing import Any
 # Selectable with --experiment <name>.
 # Team members: add your own configs here instead of editing the pipeline.
 EXPERIMENTS: dict[str, dict[str, Any]] = {
-    "xgb_tfidf_baseline": {
-        "name": "xgb_tfidf_baseline",
-        "features": [
-            "price",             
-            "availability",      
-            "rating_numeric",   
-            "clean_description", 
-        ],
-        "model": "xgb_tfidf",
+    "xgb_tfidf": {
+        "name": "xgb_tfidf",
+        "features": ["price", "availability", "rating_numeric", "tfidf"],
+        "model": "xgb",
+        "model_params": {"tune": True, "random_state": 41},
+    },
+    "rf_tfidf": {
+        "name": "rf_tfidf",
+        "features": ["price", "availability", "rating_numeric", "tfidf"],
+        "model": "rf",
+        "model_params": {"tune": True, "random_state": 41},
+    },
+    "lightgbm_tfidf": {
+        "name": "lightgbm_tfidf",
+        "features": ["price", "availability", "rating_numeric", "tfidf"],
+        "model": "lightgbm",
         "model_params": {"tune": True, "random_state": 41},
     },
     "xgb_embeddings": {
