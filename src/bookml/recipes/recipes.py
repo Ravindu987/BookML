@@ -17,10 +17,10 @@ EXPERIMENTS: dict[str, dict[str, Any]] = {
     "xgb_tfidf_baseline": {
         "name": "xgb_tfidf_baseline",
         "features": [
-            "price",             # direct from CSV
-            "availability",      # direct from CSV
-            "rating_numeric",    # function: rating -> rating_num
-            "clean_description", # function: description -> cleaned_description
+            "price",             
+            "availability",      
+            "rating_numeric",   
+            "clean_description", 
         ],
         "model": "xgb_tfidf",
         "model_params": {"tune": True, "random_state": 41},
@@ -35,6 +35,30 @@ EXPERIMENTS: dict[str, dict[str, Any]] = {
         "name": "xgb_tabular",
         "features": ["price", "availability", "rating_numeric"],
         "model": "xgb",
+        "model_params": {"tune": True, "random_state": 41},
+    },
+    "rf_tabular": {
+        "name": "rf_tabular",
+        "features": ["price", "availability", "rating_numeric"],
+        "model": "rf",
+        "model_params": {"tune": True, "random_state": 41},
+    },
+    "rf_embeddings": {
+        "name": "rf_embeddings",
+        "features": ["sentence_embeddings"],
+        "model": "rf",
+        "model_params": {"tune": True, "random_state": 41},
+    },
+    "lightgbm_tabular": {
+        "name": "lightgbm_tabular",
+        "features": ["price", "availability", "rating_numeric"],
+        "model": "lightgbm",
+        "model_params": {"tune": True, "random_state": 41},
+    },
+    "lightgbm_embeddings": {
+        "name": "lightgbm_embeddings",
+        "features": ["sentence_embeddings"],
+        "model": "lightgbm",
         "model_params": {"tune": True, "random_state": 41},
     },
     "svm_tabular": {
@@ -76,4 +100,4 @@ EXPERIMENTS: dict[str, dict[str, Any]] = {
 }
 
 
-
+

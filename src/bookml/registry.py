@@ -13,6 +13,8 @@ from bookml.features.tabular import add_rating_numeric
 from bookml.features.text import add_cleaned_description
 
 # --- Models ------------------------------------------------------------------
+from bookml.models.lightgbm_classifier import LightGBMClassifier
+from bookml.models.rf_classifier import RandomForestClassifier
 from bookml.models.svm_classifier import LinearSVMClassifier, SVMRBFClassifier
 from bookml.models.xgb_classifier import XGBoostClassifier
 from bookml.models.xgb_tfidf import XGBTfidfClassifier
@@ -49,6 +51,10 @@ MODEL_REGISTRY: dict[str, ModelFactory] = {
     "xgb": XGBoostClassifier,
     "general": XGBoostClassifier,
     "xgb_embeddings": XGBoostClassifier,
+    # LightGBM model
+    "lightgbm": LightGBMClassifier,
+    # Random Forest model
+    "rf": RandomForestClassifier,
     # Pipeline model with TF-IDF for text + numeric metadata
     "xgb_tfidf": XGBTfidfClassifier,
     # Support Vector Machine (RBF Kernel) with standard scaling
