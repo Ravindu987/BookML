@@ -1,0 +1,29 @@
+# Validation Set: ID and Title
+# Format: ID	Title
+100	Eaternity: More than 150 Deliciously Easy Vegan Recipes for a Long, Healthy, Satisfied, Joyful Life
+145	Trespassing Across America: One Man's Epic, Never-Done-Before (and Sort of Illegal) Hike Across the Heartland
+8	Finders Keepers (Bill Hodges Trilogy #2)
+45	Last One Home (New Beginnings #1)
+154	Letter to a Christian Nation
+68	#HigherSelfie: Wake Up Your Life. Free Your Soul. Find Your Tribe.
+121	Love That Boy: What Two Presidents, Eight Road Trips, and My Son Taught Me About a Parent's Expectations
+130	The Man Who Mistook His Wife for a Hat and Other Clinical Tales
+42	The Firm
+129	Finding God in the Ruins: How God Redeems Pain
+135	My Mother Was Nuts
+27	The Improbability of Love
+77	Everydata: The Misinformation Hidden in the Little Data You Consume Every Day
+149	Rise of the Rocket Girls: The Women Who Propelled Us, from Missiles to the Moon to Mars
+55	Jurassic Park (Jurassic Park #1)
+17	Mr. Mercedes (Bill Hodges Trilogy #1)
+163	Born to Run: A Hidden Tribe, Superathletes, and the Greatest Race the World Has Never Seen
+1	Private Paris (Private #10)
+115	Why Not Me?
+18	I Am Pilgrim (Pilgrim #1)
+88	Agnostic: A Spirited Manifesto
+173	The End of the Jesus Era (An Investigation #1)
+15	My Name Is Lucy Barton
+150	Outliers: The Story of Success
+91	The Year of Magical Thinking
+0	Soumission
+151	Notes from a Small Island (Notes From a Small Island #1)
