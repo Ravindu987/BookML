@@ -186,3 +186,51 @@ def add_image_resnet18_vectors(df: pd.DataFrame) -> pd.DataFrame:
     img_df = pd.DataFrame(embeddings, index=df.index, columns=cols)
     return pd.concat([df, img_df], axis=1)
 
+
+IMAGE_COLOR_CACHE_PATH: Path = DATA_DIR / "image_color_features.npz"
+IMAGE_COLOR_FEATURE_PREFIX = "img_color_"
+
+
+def extract_color_descriptor(path: Path) -> np.ndarray:
+    """Extracts 52-dimensional handcrafted color descriptor:
+    - RGB channel means (3)
+    - Grayscale mean (1)
+    - 16-bin color histograms for R, G, B channels (48)
+    """
+    if not path or not path.exists():
+        return np.zeros(52, dtype=np.float32)
+    try:
+        with Image.open(path) as img:
+            arr = np.array(img.convert("RGB").resize((64, 64)))
+            rgb_means = arr.mean(axis=(0, 1)) / 255.0
+            gray_mean = np.array(img.convert("L").resize((64, 64))).mean() / 255.0
+            r_h, _ = np.histogram(arr[:, :, 0], bins=16, range=(0, 256), density=True)
+            g_h, _ = np.histogram(arr[:, :, 1], bins=16, range=(0, 256), density=True)
+            b_h, _ = np.histogram(arr[:, :, 2], bins=16, range=(0, 256), density=True)
+            return np.concatenate([[rgb_means[0], rgb_means[1], rgb_means[2], gray_mean], r_h, g_h, b_h]).astype(np.float32)
+    except Exception as e:
+        logger.warning("Error extracting color features from '%s': %s", path, e)
+        return np.zeros(52, dtype=np.float32)
+
+
+def add_image_color_features(df: pd.DataFrame) -> pd.DataFrame:
+    """Extracts or loads 52-dimensional color descriptor features for each book."""
+    embeddings = _load_cached_embeddings(len(df), IMAGE_COLOR_CACHE_PATH)
+
+    if embeddings is None:
+        images_dir = IMAGES_DIR
+        if not images_dir.exists():
+            root_candidate = DATA_DIR.parents[3] / "data" / "images"
+            if root_candidate.exists():
+                images_dir = root_candidate
+
+        image_paths = [resolve_image_path(row, images_dir) for _, row in df.iterrows()]
+        logger.info("Computing 52-dim color histograms for %d images...", len(image_paths))
+        color_feats = np.array([extract_color_descriptor(p) for p in image_paths], dtype=np.float32)
+        embeddings = np.ascontiguousarray(color_feats, dtype=np.float32)
+        _save_embeddings_cache(embeddings, IMAGE_COLOR_CACHE_PATH)
+
+    cols = [f"{IMAGE_COLOR_FEATURE_PREFIX}{i}" for i in range(embeddings.shape[1])]
+    color_df = pd.DataFrame(embeddings, index=df.index, columns=cols)
+    return pd.concat([df, color_df], axis=1)
+

@@ -1,0 +1,36 @@
+{
+  "experiment": "ensemble_stacking_domain",
+  "timestamp": "2026-10-24T22:54:13",
+  "config": {
+    "name": "ensemble_stacking_domain",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric",
+      "domain_features"
+    ],
+    "model": "ensemble_stacking",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.7978137804224761,
+  "best_params": {
+    "final_estimator__C": 1.0
+  },
+  "validation_metrics": {
+    "accuracy": 0.8888888888888888,
+    "precision": 0.7692307692307693,
+    "recall": 1.0,
+    "f1": 0.8695652173913043,
+    "roc_auc": 1.0
+  },
+  "confusion_matrix": {
+    "tp": 10,
+    "tn": 14,
+    "fp": 3,
+    "fn": 0
+  },
+  "top_features": []
+}

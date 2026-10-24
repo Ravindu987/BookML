@@ -93,3 +93,21 @@ def add_tfidf_features(
     )
     return pd.concat([df, tfidf_df], axis=1)
 
+
+def add_tfidf_80_features(df: pd.DataFrame) -> pd.DataFrame:
+    """Extracts 80 top TF-IDF features from title and description."""
+    title = df["title"].fillna("").astype(str)
+    desc = df["description"].fillna("").astype(str) if "description" in df.columns else pd.Series([""] * len(df), index=df.index)
+    full_text = title + " " + desc
+
+    vectorizer = TfidfVectorizer(max_features=80, stop_words="english")
+    matrix = vectorizer.fit_transform(full_text).toarray()
+    cols = [f"{TFIDF_PREFIX}{i}" for i in range(matrix.shape[1])]
+    tfidf_df = pd.DataFrame(
+        np.ascontiguousarray(matrix, dtype=np.float32),
+        index=df.index,
+        columns=cols,
+    )
+    return pd.concat([df, tfidf_df], axis=1)
+
+

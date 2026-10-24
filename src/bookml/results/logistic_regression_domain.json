@@ -1,0 +1,98 @@
+{
+  "experiment": "logistic_regression_domain",
+  "timestamp": "2026-10-24T20:41:52",
+  "config": {
+    "name": "logistic_regression_domain",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric",
+      "domain_features"
+    ],
+    "model": "logistic_regression",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.8117241379310345,
+  "best_params": {
+    "classifier__C": 1.0,
+    "classifier__class_weight": "balanced"
+  },
+  "validation_metrics": {
+    "accuracy": 0.8518518518518519,
+    "precision": 0.7142857142857143,
+    "recall": 1.0,
+    "f1": 0.8333333333333334,
+    "roc_auc": 0.9352941176470588
+  },
+  "confusion_matrix": {
+    "tp": 10,
+    "tn": 13,
+    "fp": 4,
+    "fn": 0
+  },
+  "top_features": [
+    [
+      "has_subtitle",
+      -1.2855364194760317
+    ],
+    [
+      "title_word_count",
+      -1.1473301607045148
+    ],
+    [
+      "title_digit_count",
+      1.046266491690501
+    ],
+    [
+      "digit_count",
+      -0.9744754530568622
+    ],
+    [
+      "title_char_len",
+      -0.8416314239807966
+    ],
+    [
+      "quote_count",
+      -0.25297745305908725
+    ],
+    [
+      "title_upper_ratio",
+      -0.2529467322691278
+    ],
+    [
+      "price",
+      -0.2368256307969432
+    ],
+    [
+      "availability",
+      0.2327292815558374
+    ],
+    [
+      "desc_char_len",
+      0.18590265577720436
+    ],
+    [
+      "exclamation_count",
+      0.1535184757644656
+    ],
+    [
+      "total_char_len",
+      0.14867643814680942
+    ],
+    [
+      "total_word_count",
+      -0.1484939449101347
+    ],
+    [
+      "desc_word_count",
+      -0.09603176486906909
+    ],
+    [
+      "rating_num",
+      0.004280712504690166
+    ]
+  ]
+}

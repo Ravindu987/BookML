@@ -4,8 +4,47 @@ from __future__ import annotations
 from typing import Any
 
 import numpy as np
-from sklearn.base import BaseEstimator, ClassifierMixin
+from sklearn.base import BaseEstimator, ClassifierMixin, TransformerMixin
 from sklearn.model_selection import GridSearchCV, StratifiedKFold
+from sklearn.preprocessing import StandardScaler
+
+
+class SelectiveScaler(BaseEstimator, TransformerMixin):
+    """Scales tabular columns while leaving bounded features (TF-IDF, histograms, unit vectors) intact."""
+
+    def fit(self, X: Any, y: Any = None) -> "SelectiveScaler":
+        if hasattr(X, "columns"):
+            self.passthrough_cols_ = [
+                c for c in X.columns
+                if any(c.startswith(p) for p in ("tfidf_", "img_color_", "img_resnet18_", "emb_", "multimodal_concat_"))
+            ]
+            self.scale_cols_ = [c for c in X.columns if c not in self.passthrough_cols_]
+        else:
+            self.scale_cols_ = []
+            self.passthrough_cols_ = []
+
+        if self.scale_cols_:
+            self.scaler_ = StandardScaler()
+            self.scaler_.fit(X[self.scale_cols_])
+        elif not self.passthrough_cols_:
+            self.scaler_ = StandardScaler()
+            self.scaler_.fit(X)
+        else:
+            self.scaler_ = None
+        return self
+
+    def transform(self, X: Any) -> np.ndarray:
+        if hasattr(X, "columns") and self.scale_cols_:
+            scaled = self.scaler_.transform(X[self.scale_cols_])
+            if self.passthrough_cols_:
+                passthrough = X[self.passthrough_cols_].to_numpy(dtype=np.float32)
+                return np.hstack([scaled, passthrough])
+            return scaled
+        elif self.scaler_ is not None:
+            return self.scaler_.transform(X)
+        elif hasattr(X, "to_numpy"):
+            return X.to_numpy(dtype=np.float32)
+        return np.asarray(X, dtype=np.float32)
 
 
 class GridSearchClassifier(ClassifierMixin, BaseEstimator):

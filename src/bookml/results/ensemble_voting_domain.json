@@ -1,0 +1,40 @@
+{
+  "experiment": "ensemble_voting_domain",
+  "timestamp": "2026-10-24T22:53:59",
+  "config": {
+    "name": "ensemble_voting_domain",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric",
+      "domain_features"
+    ],
+    "model": "ensemble_voting",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.8111861780053999,
+  "best_params": {
+    "weights": [
+      1.0,
+      1.0,
+      2.0
+    ]
+  },
+  "validation_metrics": {
+    "accuracy": 0.9259259259259259,
+    "precision": 0.8333333333333334,
+    "recall": 1.0,
+    "f1": 0.9090909090909091,
+    "roc_auc": 1.0
+  },
+  "confusion_matrix": {
+    "tp": 10,
+    "tn": 15,
+    "fp": 2,
+    "fn": 0
+  },
+  "top_features": []
+}

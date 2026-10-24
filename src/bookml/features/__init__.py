@@ -1,16 +1,33 @@
-
 from .embeddings import EMBEDDING_PREFIX, add_sentence_embeddings
 from .images import (
     BASIC_IMAGE_COLUMNS,
+    IMAGE_COLOR_FEATURE_PREFIX,
     IMAGE_FEATURE_PREFIX,
     add_image_basic_features,
+    add_image_color_features,
     add_image_resnet18_vectors,
 )
 from .multimodal import MULTIMODAL_CONCAT_PREFIX, add_multimodal_concat_features
-from .tabular import add_rating_numeric
+from .tabular import (
+    add_desc_char_len,
+    add_desc_word_count,
+    add_digit_count,
+    add_domain_features,
+    add_exclamation_count,
+    add_has_subtitle,
+    add_quote_count,
+    add_rating_numeric,
+    add_title_char_len,
+    add_title_digit_count,
+    add_title_upper_ratio,
+    add_title_word_count,
+    add_total_char_len,
+    add_total_word_count,
+)
 from .text import (
     TFIDF_PREFIX,
     add_cleaned_description,
+    add_tfidf_80_features,
     add_tfidf_features,
     clean_and_lemmatize,
 )
@@ -18,17 +35,31 @@ from .text import (
 __all__ = [
     "BASIC_IMAGE_COLUMNS",
     "EMBEDDING_PREFIX",
+    "IMAGE_COLOR_FEATURE_PREFIX",
     "IMAGE_FEATURE_PREFIX",
-    "TFIDF_PREFIX",
     "MULTIMODAL_CONCAT_PREFIX",
+    "TFIDF_PREFIX",
     "add_cleaned_description",
+    "add_desc_char_len",
+    "add_desc_word_count",
+    "add_digit_count",
+    "add_domain_features",
+    "add_exclamation_count",
+    "add_has_subtitle",
     "add_image_basic_features",
+    "add_image_color_features",
     "add_image_resnet18_vectors",
     "add_multimodal_concat_features",
+    "add_quote_count",
     "add_rating_numeric",
     "add_sentence_embeddings",
+    "add_tfidf_80_features",
     "add_tfidf_features",
+    "add_title_char_len",
+    "add_title_digit_count",
+    "add_title_upper_ratio",
+    "add_title_word_count",
+    "add_total_char_len",
+    "add_total_word_count",
     "clean_and_lemmatize",
 ]
-
-

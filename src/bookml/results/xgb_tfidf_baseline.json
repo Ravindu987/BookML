@@ -1,0 +1,102 @@
+{
+  "experiment": "xgb_tfidf_baseline",
+  "timestamp": "2026-10-24T22:55:33",
+  "config": {
+    "name": "xgb_tfidf_baseline",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric",
+      "clean_description"
+    ],
+    "model": "xgb_tfidf",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.775159241978464,
+  "best_params": {
+    "classifier__learning_rate": 0.05,
+    "classifier__max_depth": 4,
+    "classifier__n_estimators": 100,
+    "classifier__scale_pos_weight": 1.69,
+    "classifier__subsample": 1.0,
+    "preprocessor__tfidf__max_features": 1000
+  },
+  "validation_metrics": {
+    "accuracy": 0.8148148148148148,
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1": 0.6666666666666666,
+    "roc_auc": 0.7794117647058824
+  },
+  "confusion_matrix": {
+    "tp": 5,
+    "tn": 17,
+    "fp": 0,
+    "fn": 5
+  },
+  "top_features": [
+    [
+      "text: novel",
+      0.051571741700172424
+    ],
+    [
+      "text: secret",
+      0.048755183815956116
+    ],
+    [
+      "text: assassin",
+      0.04869082197546959
+    ],
+    [
+      "text: unexpected",
+      0.04699235036969185
+    ],
+    [
+      "text: flee",
+      0.04582376033067703
+    ],
+    [
+      "text: youngest",
+      0.04272091016173363
+    ],
+    [
+      "text: forever",
+      0.03579927235841751
+    ],
+    [
+      "text: wife",
+      0.03259538486599922
+    ],
+    [
+      "text: stop",
+      0.029153496026992798
+    ],
+    [
+      "text: together",
+      0.028872232884168625
+    ],
+    [
+      "text: family",
+      0.02507861889898777
+    ],
+    [
+      "text: road",
+      0.024770846590399742
+    ],
+    [
+      "text: keep",
+      0.02419920824468136
+    ],
+    [
+      "text: book",
+      0.02410600334405899
+    ],
+    [
+      "text: old",
+      0.022056017071008682
+    ]
+  ]
+}

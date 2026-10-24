@@ -15,6 +15,8 @@ dependencies = [
     "torchvision>=0.15",
     "selenium>=4.51.0",
     "xgboost>=3.0",
+    "matplotlib>=3.11.2",
+    "seaborn>=0.13.2",
 ]
 
 
@@ -25,8 +27,15 @@ embeddings = [
 ]
 
 [project.scripts]
-bookml = "bookml:main"
+bookml = "bookml.main:main"
 
 [build-system]
 requires = ["uv_build>=0.12.2,<0.13.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.4.0",
+    "nbconvert>=7.17.2",
+    "nbformat>=5.11.1",
+]
