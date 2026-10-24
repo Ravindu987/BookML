@@ -8,10 +8,12 @@ import pandas as pd
 
 # --- Feature functions -------------------------------------------------------
 from bookml.features.embeddings import add_sentence_embeddings
+from bookml.features.images import add_image_resnet18_vectors
 from bookml.features.tabular import add_rating_numeric
 from bookml.features.text import add_cleaned_description
 
 # --- Models ------------------------------------------------------------------
+from bookml.models.svm_classifier import LinearSVMClassifier, SVMRBFClassifier
 from bookml.models.xgb_classifier import XGBoostClassifier
 from bookml.models.xgb_tfidf import XGBTfidfClassifier
 
@@ -34,7 +36,9 @@ FEATURE_REGISTRY: dict[str, FeatureEntry] = {
     "rating_numeric": add_rating_numeric,            # rating -> rating_num
     "clean_description": add_cleaned_description,    # description -> cleaned_description
     "sentence_embeddings": add_sentence_embeddings,  # description -> emb_0..emb_383
+    "imageResNet18Vector": add_image_resnet18_vectors,  # image -> img_resnet18_0..img_resnet18_511
 }
+
 
 
 # =============================================================================
@@ -47,6 +51,11 @@ MODEL_REGISTRY: dict[str, ModelFactory] = {
     "xgb_embeddings": XGBoostClassifier,
     # Pipeline model with TF-IDF for text + numeric metadata
     "xgb_tfidf": XGBTfidfClassifier,
+    # Support Vector Machine (RBF Kernel) with standard scaling
+    "svm_rbf": SVMRBFClassifier,
+    "svm": SVMRBFClassifier,
+    # Support Vector Machine (Linear Kernel) with standard scaling
+    "linear_svm": LinearSVMClassifier,
 }
 
 

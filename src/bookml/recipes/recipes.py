@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+from typing import Any
+
 # =============================================================================
 # EXPERIMENT CONFIGURATIONS
 # =============================================================================
@@ -33,4 +37,43 @@ EXPERIMENTS: dict[str, dict[str, Any]] = {
         "model": "xgb",
         "model_params": {"tune": True, "random_state": 41},
     },
+    "svm_tabular": {
+        "name": "svm_tabular",
+        "features": ["price", "availability", "rating_numeric"],
+        "model": "svm_rbf",
+        "model_params": {"tune": True, "random_state": 41},
+    },
+    "svm_embeddings": {
+        "name": "svm_embeddings",
+        "features": ["sentence_embeddings"],
+        "model": "svm_rbf",
+        "model_params": {"tune": True, "random_state": 41},
+    },
+    "svm_images": {
+        "name": "svm_images",
+        "features": ["imageResNet18Vector"],
+        "model": "svm_rbf",
+        "model_params": {"tune": True, "random_state": 41},
+    },
+    "svm_multimodal": {
+        "name": "svm_multimodal",
+        "features": ["sentence_embeddings", "imageResNet18Vector"],
+        "model": "svm_rbf",
+        "model_params": {"tune": True, "random_state": 41},
+    },
+    "linear_svm_images": {
+        "name": "linear_svm_images",
+        "features": ["imageResNet18Vector"],
+        "model": "linear_svm",
+        "model_params": {"tune": True, "random_state": 41},
+    },
+    "linear_svm_multimodal": {
+        "name": "linear_svm_multimodal",
+        "features": ["sentence_embeddings", "imageResNet18Vector"],
+        "model": "linear_svm",
+        "model_params": {"tune": True, "random_state": 41},
+    },
 }
+
+
+

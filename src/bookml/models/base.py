@@ -74,4 +74,4 @@ class GridSearchClassifier(ClassifierMixin, BaseEstimator):
 def compute_imbalance_ratio(y: np.ndarray) -> float:
     pos = (y == 1).sum()
     neg = (y == 0).sum()
-    return round(neg / pos, 2)
+    return round(neg / pos, 2)
