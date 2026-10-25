@@ -69,7 +69,6 @@ FEATURE_REGISTRY: dict[str, FeatureEntry] = {
     "imageResNet18Vector": add_image_resnet18_vectors,
     "image_basic_features": add_image_basic_features,
     "image_color_features": add_image_color_features,
-    "imageColorVector": add_image_color_features,
     "multimodal_concatenated_feature": add_multimodal_concat_features,
 
     # Domain & stylistic engineered features

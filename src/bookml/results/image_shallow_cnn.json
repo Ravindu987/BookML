@@ -1,0 +1,221 @@
+{
+  "experiment": "image_shallow_cnn",
+  "timestamp": "2026-10-25T09:48:35",
+  "model": "ShallowBookCNN",
+  "features": "raw_images_128x128",
+  "cv_best_score": 0.3973,
+  "best_params": {
+    "architecture": "ShallowBookCNN (3 conv stages + BN + 2-layer FC)",
+    "epochs": 30,
+    "batch_size": 16,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "optimizer": "Adam",
+    "scheduler": "CosineAnnealingLR",
+    "parameters": 56674
+  },
+  "validation_metrics": {
+    "accuracy": 0.5185,
+    "precision": 0.3846,
+    "recall": 0.5,
+    "f1": 0.4348,
+    "roc_auc": 0.5353
+  },
+  "confusion_matrix": {
+    "tp": 5,
+    "tn": 9,
+    "fp": 8,
+    "fn": 5
+  },
+  "predictions": [
+    {
+      "id": 0,
+      "title": "Soumission",
+      "actual": "Fiction",
+      "predicted": "Fiction",
+      "probability_fiction": 0.5849847197532654
+    },
+    {
+      "id": 1,
+      "title": "Private Paris (Private #10)",
+      "actual": "Fiction",
+      "predicted": "Fiction",
+      "probability_fiction": 0.629610002040863
+    },
+    {
+      "id": 8,
+      "title": "Finders Keepers (Bill Hodges Trilogy #2)",
+      "actual": "Fiction",
+      "predicted": "Nonfiction",
+      "probability_fiction": 0.345185250043869
+    },
+    {
+      "id": 15,
+      "title": "My Name Is Lucy Barton",
+      "actual": "Fiction",
+      "predicted": "Nonfiction",
+      "probability_fiction": 0.22040244936943054
+    },
+    {
+      "id": 17,
+      "title": "Mr. Mercedes (Bill Hodges Trilogy #1)",
+      "actual": "Fiction",
+      "predicted": "Nonfiction",
+      "probability_fiction": 0.16106660664081573
+    },
+    {
+      "id": 18,
+      "title": "I Am Pilgrim (Pilgrim #1)",
+      "actual": "Fiction",
+      "predicted": "Fiction",
+      "probability_fiction": 0.9528858661651611
+    },
+    {
+      "id": 27,
+      "title": "The Improbability of Love",
+      "actual": "Fiction",
+      "predicted": "Nonfiction",
+      "probability_fiction": 0.48633110523223877
+    },
+    {
+      "id": 42,
+      "title": "The Firm",
+      "actual": "Fiction",
+      "predicted": "Nonfiction",
+      "probability_fiction": 0.3612327575683594
+    },
+    {
+      "id": 45,
+      "title": "Last One Home (New Beginnings #1)",
+      "actual": "Fiction",
+      "predicted": "Fiction",
+      "probability_fiction": 0.5428344011306763
+    },
+    {
+      "id": 55,
+      "title": "Jurassic Park (Jurassic Park #1)",
+      "actual": "Fiction",
+      "predicted": "Fiction",
+      "probability_fiction": 0.8565892577171326
+    },
+    {
+      "id": 68,
+      "title": "#HigherSelfie: Wake Up Your Life. Free Your Soul. Find Your Tribe.",
+      "actual": "Nonfiction",
+      "predicted": "Fiction",
+      "probability_fiction": 0.5004520416259766
+    },
+    {
+      "id": 77,
+      "title": "Everydata: The Misinformation Hidden in the Little Data You Consume Every Day",
+      "actual": "Nonfiction",
+      "predicted": "Nonfiction",
+      "probability_fiction": 0.3546884059906006
+    },
+    {
+      "id": 88,
+      "title": "Agnostic: A Spirited Manifesto",
+      "actual": "Nonfiction",
+      "predicted": "Fiction",
+      "probability_fiction": 0.9576781988143921
+    },
+    {
+      "id": 91,
+      "title": "The Year of Magical Thinking",
+      "actual": "Nonfiction",
+      "predicted": "Nonfiction",
+      "probability_fiction": 0.39099374413490295
+    },
+    {
+      "id": 100,
+      "title": "Eaternity: More than 150 Deliciously Easy Vegan Recipes for a Long, Healthy, Satisfied, Joyful Life",
+      "actual": "Nonfiction",
+      "predicted": "Fiction",
+      "probability_fiction": 0.5516257882118225
+    },
+    {
+      "id": 115,
+      "title": "Why Not Me?",
+      "actual": "Nonfiction",
+      "predicted": "Nonfiction",
+      "probability_fiction": 0.27270743250846863
+    },
+    {
+      "id": 121,
+      "title": "Love That Boy: What Two Presidents, Eight Road Trips, and My Son Taught Me About a Parent's Expectations",
+      "actual": "Nonfiction",
+      "predicted": "Nonfiction",
+      "probability_fiction": 0.1762467473745346
+    },
+    {
+      "id": 129,
+      "title": "Finding God in the Ruins: How God Redeems Pain",
+      "actual": "Nonfiction",
+      "predicted": "Nonfiction",
+      "probability_fiction": 0.4614206552505493
+    },
+    {
+      "id": 130,
+      "title": "The Man Who Mistook His Wife for a Hat and Other Clinical Tales",
+      "actual": "Nonfiction",
+      "predicted": "Fiction",
+      "probability_fiction": 0.816308856010437
+    },
+    {
+      "id": 135,
+      "title": "My Mother Was Nuts",
+      "actual": "Nonfiction",
+      "predicted": "Fiction",
+      "probability_fiction": 0.6214668154716492
+    },
+    {
+      "id": 145,
+      "title": "Trespassing Across America: One Man's Epic, Never-Done-Before (and Sort of Illegal) Hike Across the Heartland",
+      "actual": "Nonfiction",
+      "predicted": "Nonfiction",
+      "probability_fiction": 0.41027140617370605
+    },
+    {
+      "id": 149,
+      "title": "Rise of the Rocket Girls: The Women Who Propelled Us, from Missiles to the Moon to Mars",
+      "actual": "Nonfiction",
+      "predicted": "Fiction",
+      "probability_fiction": 0.5526657700538635
+    },
+    {
+      "id": 150,
+      "title": "Outliers: The Story of Success",
+      "actual": "Nonfiction",
+      "predicted": "Nonfiction",
+      "probability_fiction": 0.11208704859018326
+    },
+    {
+      "id": 151,
+      "title": "Notes from a Small Island (Notes From a Small Island #1)",
+      "actual": "Nonfiction",
+      "predicted": "Nonfiction",
+      "probability_fiction": 0.29569268226623535
+    },
+    {
+      "id": 154,
+      "title": "Letter to a Christian Nation",
+      "actual": "Nonfiction",
+      "predicted": "Nonfiction",
+      "probability_fiction": 0.17485231161117554
+    },
+    {
+      "id": 163,
+      "title": "Born to Run: A Hidden Tribe, Superathletes, and the Greatest Race the World Has Never Seen",
+      "actual": "Nonfiction",
+      "predicted": "Fiction",
+      "probability_fiction": 0.7593365907669067
+    },
+    {
+      "id": 173,
+      "title": "The End of the Jesus Era (An Investigation #1)",
+      "actual": "Nonfiction",
+      "predicted": "Fiction",
+      "probability_fiction": 0.7035114169120789
+    }
+  ]
+}
