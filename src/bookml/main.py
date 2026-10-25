@@ -15,6 +15,13 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
+import sys
+
+# Ensure src is on sys.path
+_SRC_DIR = Path(__file__).resolve().parents[1]
+if str(_SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(_SRC_DIR))
+
 from bookml.data_loader.load_data import (
     ID_COLUMN,
     INVERSE_CATEGORY_MAP,

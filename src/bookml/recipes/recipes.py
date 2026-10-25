@@ -321,6 +321,18 @@ EXPERIMENTS: dict[str, dict[str, Any]] = {
         "model": "rf",
         "model_params": {"tune": True, "random_state": 41},
     },
+    "logistic_regression_images": {
+        "name": "logistic_regression_images",
+        "features": ["imageResNet18Vector"],
+        "model": "logistic_regression",
+        "model_params": {"tune": True, "random_state": 41},
+    },
+    "mlp_images": {
+        "name": "mlp_images",
+        "features": ["imageResNet18Vector"],
+        "model": "mlp",
+        "model_params": {"tune": True, "random_state": 41},
+    },
     "svm_basic_images": {
         "name": "svm_basic_images",
         "features": ["image_basic_features"],
@@ -343,6 +355,18 @@ EXPERIMENTS: dict[str, dict[str, Any]] = {
         "name": "xgb_basic_images",
         "features": ["image_basic_features"],
         "model": "xgb",
+        "model_params": {"tune": True, "random_state": 41},
+    },
+    "logistic_regression_basic_images": {
+        "name": "logistic_regression_basic_images",
+        "features": ["image_basic_features"],
+        "model": "logistic_regression",
+        "model_params": {"tune": True, "random_state": 41},
+    },
+    "mlp_basic_images": {
+        "name": "mlp_basic_images",
+        "features": ["image_basic_features"],
+        "model": "mlp",
         "model_params": {"tune": True, "random_state": 41},
     },
     "svm_multimodal_concat": {
@@ -373,6 +397,18 @@ EXPERIMENTS: dict[str, dict[str, Any]] = {
         "name": "lightgbm_multimodal_concat",
         "features": ["multimodal_concatenated_feature"],
         "model": "lightgbm",
+        "model_params": {"tune": True, "random_state": 41},
+    },
+    "logistic_regression_multimodal_concat": {
+        "name": "logistic_regression_multimodal_concat",
+        "features": ["multimodal_concatenated_feature"],
+        "model": "logistic_regression",
+        "model_params": {"tune": True, "random_state": 41},
+    },
+    "mlp_multimodal_concat": {
+        "name": "mlp_multimodal_concat",
+        "features": ["multimodal_concatenated_feature"],
+        "model": "mlp",
         "model_params": {"tune": True, "random_state": 41},
     },
 
@@ -446,5 +482,10 @@ EXPERIMENTS: dict[str, dict[str, Any]] = {
 for _model in ("mlp", "rf", "xgb", "lightgbm", "logistic_regression", "ensemble_voting", "ensemble_stacking"):
     EXPERIMENTS[f"multimodal_{_model}"] = EXPERIMENTS[f"{_model}_multimodal"]
     EXPERIMENTS[f"{_model}_multimodal_notebook"] = EXPERIMENTS[f"{_model}_multimodal"]
+
+# Aliases for Logistic Regression image & multimodal recipes
+EXPERIMENTS["lr_images"] = EXPERIMENTS["logistic_regression_images"]
+EXPERIMENTS["lr_basic_images"] = EXPERIMENTS["logistic_regression_basic_images"]
+EXPERIMENTS["lr_multimodal_concat"] = EXPERIMENTS["logistic_regression_multimodal_concat"]
 
 

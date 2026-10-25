@@ -1,0 +1,95 @@
+{
+  "experiment": "logistic_regression_basic_images",
+  "timestamp": "2026-10-25T11:52:20",
+  "config": {
+    "name": "logistic_regression_basic_images",
+    "features": [
+      "image_basic_features"
+    ],
+    "model": "logistic_regression",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.4220455486542443,
+  "best_params": {
+    "classifier__C": 0.01,
+    "classifier__class_weight": "balanced"
+  },
+  "validation_metrics": {
+    "accuracy": 0.5925925925925926,
+    "precision": 0.45454545454545453,
+    "recall": 0.5,
+    "f1": 0.47619047619047616,
+    "roc_auc": 0.5176470588235295
+  },
+  "confusion_matrix": {
+    "tp": 5,
+    "tn": 11,
+    "fp": 6,
+    "fn": 5
+  },
+  "top_features": [
+    [
+      "img_r_hist_4",
+      0.10103416442871094
+    ],
+    [
+      "img_b_hist_4",
+      0.07282591611146927
+    ],
+    [
+      "img_b_hist_5",
+      0.06683734059333801
+    ],
+    [
+      "img_g_hist_2",
+      -0.06371474266052246
+    ],
+    [
+      "img_g_hist_4",
+      0.06200116500258446
+    ],
+    [
+      "img_g_hist_3",
+      0.057282350957393646
+    ],
+    [
+      "img_b_hist_2",
+      -0.05430254712700844
+    ],
+    [
+      "img_r_hist_7",
+      -0.050669293850660324
+    ],
+    [
+      "img_r_hist_5",
+      0.04962880536913872
+    ],
+    [
+      "img_r_hist_3",
+      -0.04382289946079254
+    ],
+    [
+      "img_b_hist_7",
+      -0.03537411242723465
+    ],
+    [
+      "img_g_hist_7",
+      -0.032789379358291626
+    ],
+    [
+      "img_g_hist_1",
+      -0.030787454918026924
+    ],
+    [
+      "img_g_hist_6",
+      0.030383525416254997
+    ],
+    [
+      "img_s_mean",
+      0.03012348897755146
+    ]
+  ]
+}
