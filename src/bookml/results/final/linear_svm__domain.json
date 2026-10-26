@@ -1,0 +1,84 @@
+{
+  "experiment": "linear_svm__domain",
+  "timestamp": "2026-10-26T21:07:07",
+  "config": {
+    "name": "linear_svm__domain",
+    "feature_set": "domain",
+    "features": [
+      "domain_features"
+    ],
+    "model": "linear_svm",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.8199781061850027,
+  "best_params": {
+    "classifier__C": 0.01,
+    "classifier__class_weight": null
+  },
+  "validation_metrics": {
+    "accuracy": 0.8148148148148148,
+    "precision": 0.6666666666666666,
+    "recall": 1.0,
+    "f1": 0.8,
+    "roc_auc": 0.9529411764705882
+  },
+  "confusion_matrix": {
+    "tp": 10,
+    "tn": 12,
+    "fp": 5,
+    "fn": 0
+  },
+  "top_features": [
+    [
+      "has_subtitle",
+      -0.49160625279241815
+    ],
+    [
+      "title_word_count",
+      -0.24382107114849166
+    ],
+    [
+      "title_char_len",
+      -0.23623170516527664
+    ],
+    [
+      "digit_count",
+      -0.15169710298361921
+    ],
+    [
+      "title_digit_count",
+      0.125774116341326
+    ],
+    [
+      "quote_count",
+      -0.08318140152754386
+    ],
+    [
+      "title_upper_ratio",
+      0.02645038495799661
+    ],
+    [
+      "total_char_len",
+      -0.02195202932176893
+    ],
+    [
+      "total_word_count",
+      -0.017420783543797863
+    ],
+    [
+      "desc_char_len",
+      -0.011947732915361673
+    ],
+    [
+      "desc_word_count",
+      -0.006169476740356592
+    ],
+    [
+      "exclamation_count",
+      -3.469446951953614e-18
+    ]
+  ]
+}

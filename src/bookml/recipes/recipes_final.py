@@ -15,6 +15,7 @@ FINAL_FEATURE_SETS: dict[str, list[str]] = {
     "image_resnet": ["imageResNet18Vector"],
     "multimodal": ["multimodal_concatenated_feature"],
     "tabular_domain": ["price", "availability", "rating_numeric", "domain_features"],
+    "domain": ["domain_features"],
     "tabular_domain_tfidf_image": [
         "price",
         "availability",

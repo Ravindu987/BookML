@@ -1,0 +1,88 @@
+{
+  "experiment": "rf__domain",
+  "timestamp": "2026-10-26T20:39:17",
+  "config": {
+    "name": "rf__domain",
+    "feature_set": "domain",
+    "features": [
+      "domain_features"
+    ],
+    "model": "rf",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.7897069597069597,
+  "best_params": {
+    "class_weight": "balanced",
+    "max_depth": 8,
+    "max_features": "sqrt",
+    "min_samples_leaf": 1,
+    "min_samples_split": 5,
+    "n_estimators": 60
+  },
+  "validation_metrics": {
+    "accuracy": 0.8888888888888888,
+    "precision": 0.7692307692307693,
+    "recall": 1.0,
+    "f1": 0.8695652173913043,
+    "roc_auc": 0.9705882352941176
+  },
+  "confusion_matrix": {
+    "tp": 10,
+    "tn": 14,
+    "fp": 3,
+    "fn": 0
+  },
+  "top_features": [
+    [
+      "has_subtitle",
+      0.2753524174143019
+    ],
+    [
+      "title_char_len",
+      0.19111879110860366
+    ],
+    [
+      "title_word_count",
+      0.15262448803721243
+    ],
+    [
+      "digit_count",
+      0.072241027893698
+    ],
+    [
+      "total_char_len",
+      0.056608070299883226
+    ],
+    [
+      "total_word_count",
+      0.05100867470031637
+    ],
+    [
+      "desc_word_count",
+      0.048398245802671686
+    ],
+    [
+      "desc_char_len",
+      0.046613382891602204
+    ],
+    [
+      "title_upper_ratio",
+      0.04276669580708318
+    ],
+    [
+      "quote_count",
+      0.0359358810759686
+    ],
+    [
+      "title_digit_count",
+      0.02677878288779147
+    ],
+    [
+      "exclamation_count",
+      0.0005535420808674111
+    ]
+  ]
+}

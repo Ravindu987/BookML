@@ -1,0 +1,36 @@
+{
+  "experiment": "svm_rbf__domain",
+  "timestamp": "2026-10-26T20:44:49",
+  "config": {
+    "name": "svm_rbf__domain",
+    "feature_set": "domain",
+    "features": [
+      "domain_features"
+    ],
+    "model": "svm_rbf",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.8078636505922863,
+  "best_params": {
+    "classifier__C": 10.0,
+    "classifier__class_weight": "balanced",
+    "classifier__gamma": 0.01
+  },
+  "validation_metrics": {
+    "accuracy": 0.7777777777777778,
+    "precision": 0.625,
+    "recall": 1.0,
+    "f1": 0.7692307692307693,
+    "roc_auc": 0.9882352941176471
+  },
+  "confusion_matrix": {
+    "tp": 10,
+    "tn": 11,
+    "fp": 6,
+    "fn": 0
+  },
+  "top_features": []
+}

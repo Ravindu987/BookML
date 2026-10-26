@@ -1,0 +1,88 @@
+{
+  "experiment": "xgb__domain",
+  "timestamp": "2026-10-26T20:16:30",
+  "config": {
+    "name": "xgb__domain",
+    "feature_set": "domain",
+    "features": [
+      "domain_features"
+    ],
+    "model": "xgb",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.8113361780648137,
+  "best_params": {
+    "colsample_bytree": 1.0,
+    "learning_rate": 0.05,
+    "max_depth": 2,
+    "n_estimators": 60,
+    "scale_pos_weight": 1.69,
+    "subsample": 0.8
+  },
+  "validation_metrics": {
+    "accuracy": 0.8148148148148148,
+    "precision": 0.6666666666666666,
+    "recall": 1.0,
+    "f1": 0.8,
+    "roc_auc": 0.9588235294117647
+  },
+  "confusion_matrix": {
+    "tp": 10,
+    "tn": 12,
+    "fp": 5,
+    "fn": 0
+  },
+  "top_features": [
+    [
+      "has_subtitle",
+      0.4432021379470825
+    ],
+    [
+      "title_char_len",
+      0.10488927364349365
+    ],
+    [
+      "digit_count",
+      0.0766221135854721
+    ],
+    [
+      "title_word_count",
+      0.07485998421907425
+    ],
+    [
+      "total_char_len",
+      0.05790041387081146
+    ],
+    [
+      "desc_word_count",
+      0.0517771877348423
+    ],
+    [
+      "total_word_count",
+      0.04483867436647415
+    ],
+    [
+      "desc_char_len",
+      0.04264308884739876
+    ],
+    [
+      "title_digit_count",
+      0.03780416399240494
+    ],
+    [
+      "title_upper_ratio",
+      0.035971641540527344
+    ],
+    [
+      "quote_count",
+      0.029491323977708817
+    ],
+    [
+      "exclamation_count",
+      0.0
+    ]
+  ]
+}

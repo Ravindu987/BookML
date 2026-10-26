@@ -1,0 +1,89 @@
+{
+  "experiment": "lightgbm__domain",
+  "timestamp": "2026-10-26T20:30:32",
+  "config": {
+    "name": "lightgbm__domain",
+    "feature_set": "domain",
+    "features": [
+      "domain_features"
+    ],
+    "model": "lightgbm",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.8143338245407211,
+  "best_params": {
+    "colsample_bytree": 0.6,
+    "learning_rate": 0.03,
+    "max_depth": 3,
+    "n_estimators": 100,
+    "num_leaves": 15,
+    "scale_pos_weight": 1.69,
+    "subsample": 0.8
+  },
+  "validation_metrics": {
+    "accuracy": 0.8518518518518519,
+    "precision": 0.7142857142857143,
+    "recall": 1.0,
+    "f1": 0.8333333333333334,
+    "roc_auc": 0.9588235294117646
+  },
+  "confusion_matrix": {
+    "tp": 10,
+    "tn": 13,
+    "fp": 4,
+    "fn": 0
+  },
+  "top_features": [
+    [
+      "title_char_len",
+      74.0
+    ],
+    [
+      "digit_count",
+      57.0
+    ],
+    [
+      "has_subtitle",
+      39.0
+    ],
+    [
+      "title_word_count",
+      39.0
+    ],
+    [
+      "quote_count",
+      32.0
+    ],
+    [
+      "title_upper_ratio",
+      26.0
+    ],
+    [
+      "total_word_count",
+      23.0
+    ],
+    [
+      "total_char_len",
+      22.0
+    ],
+    [
+      "desc_char_len",
+      19.0
+    ],
+    [
+      "desc_word_count",
+      16.0
+    ],
+    [
+      "title_digit_count",
+      10.0
+    ],
+    [
+      "exclamation_count",
+      0.0
+    ]
+  ]
+}

@@ -273,19 +273,23 @@ def run_all_final(
 # =============================================================================
 # CLI
 # =============================================================================
+# Regular + final recipes, all selectable with --experiment
+ALL_EXPERIMENTS: dict[str, dict[str, Any]] = {**EXPERIMENTS, **FINAL_EXPERIMENTS}
+
+
 def main(argv: list[str] | None = None) -> None:
 
     parser = argparse.ArgumentParser(description="Run a registry-driven BookML experiment.")
     parser.add_argument(
         "--experiment",
         default="xgb_tfidf_baseline",
-        choices=sorted(EXPERIMENTS),
+        choices=sorted(ALL_EXPERIMENTS),
         help="Named experiment config to run.",
     )
     parser.add_argument(
         "--run-all-final",
         action="store_true",
-        help="Train all models on all 10 final feature sets (results/final).",
+        help="Train all models on all final feature sets (results/final).",
     )
     args = parser.parse_args(argv)
 
@@ -295,7 +299,12 @@ def main(argv: list[str] | None = None) -> None:
         run_all_final()
         return
 
-    run_experiment(EXPERIMENTS[args.experiment])
+    config = ALL_EXPERIMENTS[args.experiment]
+    if "feature_set" in config:
+        # final recipe: store under results/final
+        run_experiment(config, results_dir=FINAL_RESULTS_DIR, overall_csv=FINAL_OVERALL_CSV)
+    else:
+        run_experiment(config)
 
 
 if __name__ == "__main__":

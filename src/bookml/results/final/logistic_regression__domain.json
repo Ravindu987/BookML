@@ -1,0 +1,84 @@
+{
+  "experiment": "logistic_regression__domain",
+  "timestamp": "2026-10-26T20:41:32",
+  "config": {
+    "name": "logistic_regression__domain",
+    "feature_set": "domain",
+    "features": [
+      "domain_features"
+    ],
+    "model": "logistic_regression",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.835055900621118,
+  "best_params": {
+    "classifier__C": 0.1,
+    "classifier__class_weight": null
+  },
+  "validation_metrics": {
+    "accuracy": 0.8518518518518519,
+    "precision": 0.7142857142857143,
+    "recall": 1.0,
+    "f1": 0.8333333333333334,
+    "roc_auc": 0.9352941176470588
+  },
+  "confusion_matrix": {
+    "tp": 10,
+    "tn": 13,
+    "fp": 4,
+    "fn": 0
+  },
+  "top_features": [
+    [
+      "has_subtitle",
+      -0.82565616135512
+    ],
+    [
+      "title_word_count",
+      -0.5462663299744371
+    ],
+    [
+      "title_char_len",
+      -0.48050977214672835
+    ],
+    [
+      "digit_count",
+      -0.4596413761366581
+    ],
+    [
+      "title_digit_count",
+      0.3502480548321274
+    ],
+    [
+      "quote_count",
+      -0.16453616117143638
+    ],
+    [
+      "title_upper_ratio",
+      -0.07283177986635246
+    ],
+    [
+      "exclamation_count",
+      0.05689147100862531
+    ],
+    [
+      "total_word_count",
+      -0.020874462367136422
+    ],
+    [
+      "total_char_len",
+      -0.01801736814471428
+    ],
+    [
+      "desc_word_count",
+      0.004465031094642848
+    ],
+    [
+      "desc_char_len",
+      0.0025178780401294825
+    ]
+  ]
+}
