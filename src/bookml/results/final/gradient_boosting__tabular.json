@@ -1,0 +1,52 @@
+{
+  "experiment": "gradient_boosting__tabular",
+  "timestamp": "2026-10-25T22:15:01",
+  "config": {
+    "name": "gradient_boosting__tabular",
+    "feature_set": "tabular",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric"
+    ],
+    "model": "gradient_boosting",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.3525489003749873,
+  "best_params": {
+    "learning_rate": 0.1,
+    "max_depth": 5,
+    "n_estimators": 100,
+    "subsample": 0.8
+  },
+  "validation_metrics": {
+    "accuracy": 0.4444444444444444,
+    "precision": 0.2727272727272727,
+    "recall": 0.3,
+    "f1": 0.2857142857142857,
+    "roc_auc": 0.40588235294117647
+  },
+  "confusion_matrix": {
+    "tp": 3,
+    "tn": 9,
+    "fp": 8,
+    "fn": 7
+  },
+  "top_features": [
+    [
+      "price",
+      0.6456302621174521
+    ],
+    [
+      "availability",
+      0.22642323662219022
+    ],
+    [
+      "rating_num",
+      0.1279465012603577
+    ]
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "experiment": "logistic_regression__tabular",
+  "timestamp": "2026-10-25T22:14:43",
+  "config": {
+    "name": "logistic_regression__tabular",
+    "feature_set": "tabular",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric"
+    ],
+    "model": "logistic_regression",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.43609810479375694,
+  "best_params": {
+    "classifier__C": 0.01,
+    "classifier__class_weight": "balanced"
+  },
+  "validation_metrics": {
+    "accuracy": 0.5925925925925926,
+    "precision": 0.45454545454545453,
+    "recall": 0.5,
+    "f1": 0.47619047619047616,
+    "roc_auc": 0.388235294117647
+  },
+  "confusion_matrix": {
+    "tp": 5,
+    "tn": 11,
+    "fp": 6,
+    "fn": 5
+  },
+  "top_features": [
+    [
+      "rating_num",
+      0.07140416340891784
+    ],
+    [
+      "availability",
+      -0.028195899365680187
+    ],
+    [
+      "price",
+      0.002690928055305688
+    ]
+  ]
+}

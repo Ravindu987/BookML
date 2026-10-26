@@ -1,0 +1,54 @@
+{
+  "experiment": "xgb__tabular",
+  "timestamp": "2026-10-25T22:13:03",
+  "config": {
+    "name": "xgb__tabular",
+    "feature_set": "tabular",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric"
+    ],
+    "model": "xgb",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.5024269064269065,
+  "best_params": {
+    "colsample_bytree": 0.6,
+    "learning_rate": 0.03,
+    "max_depth": 2,
+    "n_estimators": 60,
+    "scale_pos_weight": 1.69,
+    "subsample": 1.0
+  },
+  "validation_metrics": {
+    "accuracy": 0.5925925925925926,
+    "precision": 0.46153846153846156,
+    "recall": 0.6,
+    "f1": 0.5217391304347826,
+    "roc_auc": 0.4941176470588235
+  },
+  "confusion_matrix": {
+    "tp": 6,
+    "tn": 10,
+    "fp": 7,
+    "fn": 4
+  },
+  "top_features": [
+    [
+      "price",
+      0.7072539329528809
+    ],
+    [
+      "rating_num",
+      0.14802031219005585
+    ],
+    [
+      "availability",
+      0.14472578465938568
+    ]
+  ]
+}

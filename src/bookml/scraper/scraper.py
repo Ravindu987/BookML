@@ -6,7 +6,6 @@ Category listing (page 1) -> individual product pages (page 2) -> CSV.
 from __future__ import annotations
 
 import csv
-import platform
 import re
 import sys
 from pathlib import Path
@@ -15,7 +14,6 @@ from urllib.request import Request, urlopen
 
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -32,40 +30,16 @@ DEFAULT_IMAGES_DIR = (
 WAIT_SECONDS = 15
 
 
-def create_driver(headless: bool = True, browser: str = "auto") -> webdriver.Remote:
-    def _headless_args(options: ChromeOptions | EdgeOptions) -> None:
-        if headless:
-            options.add_argument("--headless=new")
-        options.add_argument("--disable-gpu")
-        options.add_argument("--window-size=1920,1080")
-
-    browsers = [browser] if browser != "auto" else []
-    if browser == "auto":
-        browsers = ["edge", "chrome"] if platform.system() == "Windows" else ["chrome", "edge"]
-
-    last_error: Exception | None = None
-    for name in browsers:
-        try:
-            if name == "edge":
-                options = EdgeOptions()
-                _headless_args(options)
-                return webdriver.Edge(options=options)
-            if name == "chrome":
-                options = ChromeOptions()
-                options.add_argument("--no-sandbox")
-                _headless_args(options)
-                return webdriver.Chrome(options=options)
-        except OSError as exc:
-            last_error = exc
-            continue
-    raise RuntimeError(
-        "Could not start a WebDriver (tried: "
-        + ", ".join(browsers)
-        + "). Install Microsoft Edge or Google Chrome."
-    ) from last_error
+def create_driver(headless: bool = True) -> webdriver.Edge:
+    options = EdgeOptions()
+    if headless:
+        options.add_argument("--headless=new")
+    options.add_argument("--disable-gpu")
+    options.add_argument("--window-size=1920,1080")
+    return webdriver.Edge(options=options)
 
 
-def wait_for(driver: webdriver.Chrome) -> WebDriverWait:
+def wait_for(driver: webdriver.Edge) -> WebDriverWait:
     return WebDriverWait(driver, WAIT_SECONDS)
 
 
@@ -73,7 +47,7 @@ def normalize_text(value: str) -> str:
     return re.sub(r"\s+", " ", value).strip()
 
 
-def get_category_urls(driver: webdriver.Chrome) -> dict[str, str]:
+def get_category_urls(driver: webdriver.Edge) -> dict[str, str]:
     """Page 1: discover Fiction and Nonfiction links from the sidebar."""
     driver.get(BASE_URL)
     wait_for(driver).until(
@@ -90,7 +64,7 @@ def get_category_urls(driver: webdriver.Chrome) -> dict[str, str]:
 
 
 def collect_book_urls_from_category(
-    driver: webdriver.Chrome, category_url: str
+    driver: webdriver.Edge, category_url: str
 ) -> list[str]:
     """All product page URLs for one category, following pagination."""
     driver.get(category_url)
@@ -128,7 +102,7 @@ def collect_book_urls_from_category(
     return book_urls
 
 
-def scrape_product_page(driver: webdriver.Chrome, category: str) -> dict[str, str]:
+def scrape_product_page(driver: webdriver.Edge, category: str) -> dict[str, str]:
     """Page 2: extract all fields from the current product detail page."""
     wait_for(driver).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, "div.product_main h1"))
@@ -256,6 +230,7 @@ def scrape(
 ):
     driver = create_driver()
     all_rows: list[dict[str, str]] = []
+
     img_dest_dir = Path(images_dir)
     if download_images:
         img_dest_dir.mkdir(parents=True, exist_ok=True)

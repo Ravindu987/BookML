@@ -1,0 +1,98 @@
+{
+  "experiment": "gradient_boosting__image_basic",
+  "timestamp": "2026-10-25T23:07:26",
+  "config": {
+    "name": "gradient_boosting__image_basic",
+    "feature_set": "image_basic",
+    "features": [
+      "image_basic_features"
+    ],
+    "model": "gradient_boosting",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.38384195783576586,
+  "best_params": {
+    "learning_rate": 0.1,
+    "max_depth": 5,
+    "n_estimators": 60,
+    "subsample": 1.0
+  },
+  "validation_metrics": {
+    "accuracy": 0.5555555555555556,
+    "precision": 0.4,
+    "recall": 0.4,
+    "f1": 0.4,
+    "roc_auc": 0.5705882352941176
+  },
+  "confusion_matrix": {
+    "tp": 4,
+    "tn": 11,
+    "fp": 6,
+    "fn": 6
+  },
+  "top_features": [
+    [
+      "img_g_hist_4",
+      0.07037811063290608
+    ],
+    [
+      "img_b_hist_7",
+      0.058119795683407006
+    ],
+    [
+      "img_b_hist_4",
+      0.055890106434352264
+    ],
+    [
+      "img_lum_mean",
+      0.05233061600364549
+    ],
+    [
+      "img_r_hist_1",
+      0.051131459698667066
+    ],
+    [
+      "img_s_mean",
+      0.0508329636308385
+    ],
+    [
+      "img_r_hist_6",
+      0.04842205568160831
+    ],
+    [
+      "img_r_hist_3",
+      0.04221616815884293
+    ],
+    [
+      "img_g_hist_3",
+      0.04047531047148851
+    ],
+    [
+      "img_g_hist_0",
+      0.03919785332809295
+    ],
+    [
+      "img_g_std",
+      0.03729811058839693
+    ],
+    [
+      "img_r_std",
+      0.03211216692069669
+    ],
+    [
+      "img_g_hist_1",
+      0.03139203201062326
+    ],
+    [
+      "img_r_hist_5",
+      0.030828572698082916
+    ],
+    [
+      "img_b_hist_3",
+      0.0274841038400044
+    ]
+  ]
+}

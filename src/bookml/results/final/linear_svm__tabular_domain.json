@@ -1,0 +1,99 @@
+{
+  "experiment": "linear_svm__tabular_domain",
+  "timestamp": "2026-10-26T00:02:37",
+  "config": {
+    "name": "linear_svm__tabular_domain",
+    "feature_set": "tabular_domain",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric",
+      "domain_features"
+    ],
+    "model": "linear_svm",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.8256761118830085,
+  "best_params": {
+    "classifier__C": 0.01,
+    "classifier__class_weight": null
+  },
+  "validation_metrics": {
+    "accuracy": 0.8148148148148148,
+    "precision": 0.6666666666666666,
+    "recall": 1.0,
+    "f1": 0.8,
+    "roc_auc": 0.8999999999999999
+  },
+  "confusion_matrix": {
+    "tp": 10,
+    "tn": 12,
+    "fp": 5,
+    "fn": 0
+  },
+  "top_features": [
+    [
+      "has_subtitle",
+      -0.48703299029587777
+    ],
+    [
+      "title_word_count",
+      -0.2470302139007034
+    ],
+    [
+      "title_char_len",
+      -0.24215953288509479
+    ],
+    [
+      "digit_count",
+      -0.1512867918084064
+    ],
+    [
+      "title_digit_count",
+      0.1257741163413259
+    ],
+    [
+      "price",
+      -0.07322095278139852
+    ],
+    [
+      "quote_count",
+      -0.06286673724392994
+    ],
+    [
+      "title_upper_ratio",
+      0.03435338945106829
+    ],
+    [
+      "rating_num",
+      0.031294577302323906
+    ],
+    [
+      "total_char_len",
+      -0.024572372680492775
+    ],
+    [
+      "total_word_count",
+      -0.022366165662737518
+    ],
+    [
+      "desc_char_len",
+      -0.014331479657377308
+    ],
+    [
+      "desc_word_count",
+      -0.011000960512726459
+    ],
+    [
+      "availability",
+      0.010354662752968112
+    ],
+    [
+      "exclamation_count",
+      -2.0816681711721685e-17
+    ]
+  ]
+}

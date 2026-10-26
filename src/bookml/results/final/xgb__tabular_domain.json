@@ -1,0 +1,103 @@
+{
+  "experiment": "xgb__tabular_domain",
+  "timestamp": "2026-10-26T00:00:19",
+  "config": {
+    "name": "xgb__tabular_domain",
+    "feature_set": "tabular_domain",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric",
+      "domain_features"
+    ],
+    "model": "xgb",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.8143338245407211,
+  "best_params": {
+    "colsample_bytree": 0.6,
+    "learning_rate": 0.03,
+    "max_depth": 2,
+    "n_estimators": 100,
+    "scale_pos_weight": 1.69,
+    "subsample": 0.8
+  },
+  "validation_metrics": {
+    "accuracy": 0.8148148148148148,
+    "precision": 0.6666666666666666,
+    "recall": 1.0,
+    "f1": 0.8,
+    "roc_auc": 0.9470588235294117
+  },
+  "confusion_matrix": {
+    "tp": 10,
+    "tn": 12,
+    "fp": 5,
+    "fn": 0
+  },
+  "top_features": [
+    [
+      "has_subtitle",
+      0.3051310181617737
+    ],
+    [
+      "title_char_len",
+      0.15755455195903778
+    ],
+    [
+      "title_word_count",
+      0.07796034216880798
+    ],
+    [
+      "total_word_count",
+      0.0574752576649189
+    ],
+    [
+      "digit_count",
+      0.05606745928525925
+    ],
+    [
+      "desc_word_count",
+      0.05252756550908089
+    ],
+    [
+      "total_char_len",
+      0.04890076443552971
+    ],
+    [
+      "desc_char_len",
+      0.043027207255363464
+    ],
+    [
+      "title_digit_count",
+      0.04103465750813484
+    ],
+    [
+      "availability",
+      0.03876405954360962
+    ],
+    [
+      "price",
+      0.037681616842746735
+    ],
+    [
+      "title_upper_ratio",
+      0.03146301954984665
+    ],
+    [
+      "rating_num",
+      0.028035180643200874
+    ],
+    [
+      "quote_count",
+      0.024377208203077316
+    ],
+    [
+      "exclamation_count",
+      0.0
+    ]
+  ]
+}

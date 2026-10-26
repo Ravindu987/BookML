@@ -1,0 +1,103 @@
+{
+  "experiment": "gradient_boosting__tabular_domain_tfidf_image",
+  "timestamp": "2026-10-26T00:07:56",
+  "config": {
+    "name": "gradient_boosting__tabular_domain_tfidf_image",
+    "feature_set": "tabular_domain_tfidf_image",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric",
+      "domain_features",
+      "tfidf_80",
+      "image_color_features"
+    ],
+    "model": "gradient_boosting",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.8485300207039337,
+  "best_params": {
+    "learning_rate": 0.2,
+    "max_depth": 3,
+    "n_estimators": 60,
+    "subsample": 1.0
+  },
+  "validation_metrics": {
+    "accuracy": 0.7407407407407407,
+    "precision": 0.6666666666666666,
+    "recall": 0.6,
+    "f1": 0.631578947368421,
+    "roc_auc": 0.8705882352941177
+  },
+  "confusion_matrix": {
+    "tp": 6,
+    "tn": 14,
+    "fp": 3,
+    "fn": 4
+  },
+  "top_features": [
+    [
+      "has_subtitle",
+      0.47879810410395507
+    ],
+    [
+      "tfidf_48",
+      0.0697948327979051
+    ],
+    [
+      "img_color_18",
+      0.06177334981678972
+    ],
+    [
+      "digit_count",
+      0.057435533864493564
+    ],
+    [
+      "img_color_44",
+      0.05256493312134556
+    ],
+    [
+      "img_color_35",
+      0.03687579281481992
+    ],
+    [
+      "img_color_21",
+      0.029965941880994686
+    ],
+    [
+      "tfidf_0",
+      0.022127955914530244
+    ],
+    [
+      "img_color_16",
+      0.018297683641243543
+    ],
+    [
+      "title_char_len",
+      0.015770419618581034
+    ],
+    [
+      "tfidf_55",
+      0.013972699309738828
+    ],
+    [
+      "img_color_19",
+      0.011840969283707663
+    ],
+    [
+      "img_color_13",
+      0.01134108921689371
+    ],
+    [
+      "tfidf_45",
+      0.01082631527870834
+    ],
+    [
+      "tfidf_10",
+      0.010506830619567182
+    ]
+  ]
+}

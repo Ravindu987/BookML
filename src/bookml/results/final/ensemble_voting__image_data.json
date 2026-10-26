@@ -1,0 +1,39 @@
+{
+  "experiment": "ensemble_voting__image_data",
+  "timestamp": "2026-10-25T23:03:02",
+  "config": {
+    "name": "ensemble_voting__image_data",
+    "feature_set": "image_data",
+    "features": [
+      "image_basic_features",
+      "imageResNet18Vector"
+    ],
+    "model": "ensemble_voting",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.5082693947144075,
+  "best_params": {
+    "weights": [
+      1.0,
+      2.0,
+      1.0
+    ]
+  },
+  "validation_metrics": {
+    "accuracy": 0.6666666666666666,
+    "precision": 0.5555555555555556,
+    "recall": 0.5,
+    "f1": 0.5263157894736842,
+    "roc_auc": 0.7176470588235294
+  },
+  "confusion_matrix": {
+    "tp": 5,
+    "tn": 13,
+    "fp": 4,
+    "fn": 5
+  },
+  "top_features": []
+}

@@ -32,9 +32,19 @@ from bookml.data_loader.load_data import (
 )
 from sklearn.metrics import confusion_matrix
 from bookml.evaluation.metrics import compute_classification_metrics, format_evaluation_report
-from bookml.paths import BOOKS_CSV, DATA_DIR, OVERALL_CSV, PROJECT_ROOT, RESULTS_DIR, VAL_IDS_TXT
+from bookml.paths import (
+    BOOKS_CSV,
+    DATA_DIR,
+    FINAL_OVERALL_CSV,
+    FINAL_RESULTS_DIR,
+    OVERALL_CSV,
+    PROJECT_ROOT,
+    RESULTS_DIR,
+    VAL_IDS_TXT,
+)
 from bookml.registry import FEATURE_REGISTRY, MODEL_REGISTRY, build_model
 from bookml.recipes import EXPERIMENTS
+from bookml.recipes.recipes_final import FINAL_EXPERIMENTS, FINAL_FEATURE_SETS, FINAL_MODELS
 
 logger = logging.getLogger("bookml")
 
@@ -71,6 +81,10 @@ def apply_features(raw_df: pd.DataFrame, feature_keys: list[str]) -> pd.DataFram
 
 def run_experiment(
     config: dict[str, Any],
+    results_dir: Path = RESULTS_DIR,
+    overall_csv: Path = OVERALL_CSV,
+    raw_df: pd.DataFrame | None = None,
+    features_df: pd.DataFrame | None = None,
 ) -> dict[str, Any]:
 
     logger.info("=" * 70)
@@ -79,10 +93,12 @@ def run_experiment(
     logger.info("=" * 70)
 
     # 1. Load raw data (adds `id` and `target`)
-    raw_df = load_raw_data(BOOKS_CSV)
+    if raw_df is None:
+        raw_df = load_raw_data(BOOKS_CSV)
 
     # 2. Build feature matrix: starts with NO features, selecting ONLY requested ones
-    features_df = apply_features(raw_df, config["features"])
+    if features_df is None:
+        features_df = apply_features(raw_df, config["features"])
 
     # 3. Train/validation split using fixed validation file
     train_raw, val_raw = get_train_val_split(raw_df, val_file=VAL_IDS_TXT)
@@ -147,15 +163,20 @@ def run_experiment(
     }
 
     # 6. Persist results
-    _save_results(config, result)
+    _save_results(config, result, results_dir, overall_csv)
 
     return result
 
 
 
-def _save_results(config: dict[str, Any], result: dict[str, Any]) -> Path:
-    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    path = RESULTS_DIR / f"{config['name']}.json"
+def _save_results(
+    config: dict[str, Any],
+    result: dict[str, Any],
+    results_dir: Path = RESULTS_DIR,
+    overall_csv: Path = OVERALL_CSV,
+) -> Path:
+    results_dir.mkdir(parents=True, exist_ok=True)
+    path = results_dir / f"{config['name']}.json"
     now_iso = datetime.now().isoformat(timespec="seconds")
 
     payload = {
@@ -179,6 +200,7 @@ def _save_results(config: dict[str, Any], result: dict[str, Any]) -> Path:
     csv_row = {
         "timestamp": now_iso,
         "experiment": config.get("name"),
+        "feature_set": config.get("feature_set"),
         "model": config.get("model"),
         "features": json.dumps(config.get("features", [])),
         "cv_best_score": result.get("cv_best_score"),
@@ -190,11 +212,62 @@ def _save_results(config: dict[str, Any], result: dict[str, Any]) -> Path:
         "best_params": json.dumps(result.get("best_params", {}), default=str),
     }
 
+    is_final = results_dir != RESULTS_DIR
+    if not is_final:
+        # legacy overall.csv has no feature_set column and no header
+        csv_row.pop("feature_set", None)
+
     row_df = pd.DataFrame([csv_row])
-    row_df.to_csv(OVERALL_CSV, mode="a", header=False, index=False)
-    logger.info("Summary appended to '%s'.", OVERALL_CSV)
+    overall_csv.parent.mkdir(parents=True, exist_ok=True)
+    write_header = is_final and (not overall_csv.exists() or overall_csv.stat().st_size == 0)
+    row_df.to_csv(overall_csv, mode="a", header=write_header, index=False)
+    logger.info("Summary appended to '%s'.", overall_csv)
 
     return path
+
+
+def run_all_final(
+    models: list[str] | None = None,
+    feature_sets: list[str] | None = None,
+) -> pd.DataFrame:
+    """Train every model on each of the final feature sets.
+
+    Results (per-experiment JSON + overall.csv) go to results/final.
+    Features are computed once per feature set and reused across models.
+    Failures of single runs are logged and recorded; the sweep continues.
+    """
+    models = models or FINAL_MODELS
+    feature_sets = feature_sets or list(FINAL_FEATURE_SETS)
+
+    FINAL_RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    raw_df = load_raw_data(BOOKS_CSV)
+    summary: list[dict[str, Any]] = []
+
+    for fs_name in feature_sets:
+        feature_keys = FINAL_FEATURE_SETS[fs_name]
+        logger.info("#" * 70)
+        logger.info("FEATURE SET: %s -> %s", fs_name, feature_keys)
+        try:
+            features_df = apply_features(raw_df, feature_keys)
+        except Exception:
+            logger.exception("Feature building failed for '%s'; skipping.", fs_name)
+            continue
+
+        for model_key in models:
+            config = FINAL_EXPERIMENTS[f"{model_key}__{fs_name}"]
+            try:
+                res = run_experiment(
+                    config,
+                    results_dir=FINAL_RESULTS_DIR,
+                    overall_csv=FINAL_OVERALL_CSV,
+                    raw_df=raw_df,
+                    features_df=features_df,
+                )
+                summary.append({"experiment": config["name"], **res["metrics"]})
+            except Exception:
+                logger.exception("Experiment '%s' failed; continuing.", config["name"])
+
+    return pd.DataFrame(summary)
 
 
 # =============================================================================
@@ -209,9 +282,18 @@ def main(argv: list[str] | None = None) -> None:
         choices=sorted(EXPERIMENTS),
         help="Named experiment config to run.",
     )
+    parser.add_argument(
+        "--run-all-final",
+        action="store_true",
+        help="Train all models on all 10 final feature sets (results/final).",
+    )
     args = parser.parse_args(argv)
 
     logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
+
+    if args.run_all_final:
+        run_all_final()
+        return
 
     run_experiment(EXPERIMENTS[args.experiment])
 

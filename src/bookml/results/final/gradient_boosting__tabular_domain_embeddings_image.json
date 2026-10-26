@@ -1,0 +1,103 @@
+{
+  "experiment": "gradient_boosting__tabular_domain_embeddings_image",
+  "timestamp": "2026-10-26T00:35:22",
+  "config": {
+    "name": "gradient_boosting__tabular_domain_embeddings_image",
+    "feature_set": "tabular_domain_embeddings_image",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric",
+      "domain_features",
+      "sentence_embeddings",
+      "imageResNet18Vector"
+    ],
+    "model": "gradient_boosting",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.8692640692640692,
+  "best_params": {
+    "learning_rate": 0.2,
+    "max_depth": 4,
+    "n_estimators": 100,
+    "subsample": 0.8
+  },
+  "validation_metrics": {
+    "accuracy": 0.8148148148148148,
+    "precision": 0.6923076923076923,
+    "recall": 0.9,
+    "f1": 0.782608695652174,
+    "roc_auc": 0.8999999999999999
+  },
+  "confusion_matrix": {
+    "tp": 9,
+    "tn": 13,
+    "fp": 4,
+    "fn": 1
+  },
+  "top_features": [
+    [
+      "has_subtitle",
+      0.4317108617279826
+    ],
+    [
+      "emb_110",
+      0.08888091231392403
+    ],
+    [
+      "img_resnet18_259",
+      0.05352043718527898
+    ],
+    [
+      "img_resnet18_134",
+      0.037791734225592954
+    ],
+    [
+      "img_resnet18_426",
+      0.03201321622578118
+    ],
+    [
+      "img_resnet18_268",
+      0.030372628631231982
+    ],
+    [
+      "img_resnet18_55",
+      0.029476494223398597
+    ],
+    [
+      "emb_265",
+      0.022987864280707492
+    ],
+    [
+      "img_resnet18_113",
+      0.02217774115217529
+    ],
+    [
+      "emb_114",
+      0.022048313220243112
+    ],
+    [
+      "emb_135",
+      0.01913233949055947
+    ],
+    [
+      "emb_258",
+      0.016668565349864464
+    ],
+    [
+      "title_char_len",
+      0.01437569809250649
+    ],
+    [
+      "img_resnet18_105",
+      0.013439116148608628
+    ],
+    [
+      "img_resnet18_352",
+      0.011630278228059966
+    ]
+  ]
+}

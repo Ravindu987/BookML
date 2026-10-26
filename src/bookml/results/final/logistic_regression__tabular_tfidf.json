@@ -1,0 +1,99 @@
+{
+  "experiment": "logistic_regression__tabular_tfidf",
+  "timestamp": "2026-10-25T22:24:55",
+  "config": {
+    "name": "logistic_regression__tabular_tfidf",
+    "feature_set": "tabular_tfidf",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric",
+      "tfidf"
+    ],
+    "model": "logistic_regression",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.6753276471811942,
+  "best_params": {
+    "classifier__C": 10.0,
+    "classifier__class_weight": "balanced"
+  },
+  "validation_metrics": {
+    "accuracy": 0.7407407407407407,
+    "precision": 1.0,
+    "recall": 0.3,
+    "f1": 0.46153846153846156,
+    "roc_auc": 0.8176470588235295
+  },
+  "confusion_matrix": {
+    "tp": 3,
+    "tn": 17,
+    "fp": 0,
+    "fn": 7
+  },
+  "top_features": [
+    [
+      "tfidf_novel",
+      4.41391561866195
+    ],
+    [
+      "tfidf_secret",
+      2.7263175411235694
+    ],
+    [
+      "tfidf_forever",
+      1.9738166244272257
+    ],
+    [
+      "tfidf_love",
+      1.8485981742067188
+    ],
+    [
+      "tfidf_know",
+      1.8261504405021198
+    ],
+    [
+      "tfidf_son",
+      1.7880661988041888
+    ],
+    [
+      "tfidf_daughter",
+      1.715608724283249
+    ],
+    [
+      "tfidf_america",
+      -1.6761726465665323
+    ],
+    [
+      "tfidf_president",
+      1.6172269568018487
+    ],
+    [
+      "tfidf_wife",
+      1.6161388035040434
+    ],
+    [
+      "tfidf_family",
+      1.612355402493287
+    ],
+    [
+      "tfidf_debut",
+      1.5939045705107016
+    ],
+    [
+      "tfidf_inspire",
+      -1.5651117524364386
+    ],
+    [
+      "tfidf_stop",
+      1.5323405356611168
+    ],
+    [
+      "tfidf_jane",
+      1.471999517991941
+    ]
+  ]
+}

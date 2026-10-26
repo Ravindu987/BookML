@@ -1,0 +1,101 @@
+{
+  "experiment": "logistic_regression__tabular_domain_tfidf_image",
+  "timestamp": "2026-10-26T00:07:11",
+  "config": {
+    "name": "logistic_regression__tabular_domain_tfidf_image",
+    "feature_set": "tabular_domain_tfidf_image",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric",
+      "domain_features",
+      "tfidf_80",
+      "image_color_features"
+    ],
+    "model": "logistic_regression",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.8313365539452496,
+  "best_params": {
+    "classifier__C": 5.0,
+    "classifier__class_weight": "balanced"
+  },
+  "validation_metrics": {
+    "accuracy": 0.8518518518518519,
+    "precision": 0.75,
+    "recall": 0.9,
+    "f1": 0.8181818181818182,
+    "roc_auc": 0.9176470588235295
+  },
+  "confusion_matrix": {
+    "tp": 9,
+    "tn": 14,
+    "fp": 3,
+    "fn": 1
+  },
+  "top_features": [
+    [
+      "tfidf_48",
+      4.4613874719235085
+    ],
+    [
+      "tfidf_36",
+      -2.0088751449282922
+    ],
+    [
+      "tfidf_79",
+      1.942019209237495
+    ],
+    [
+      "tfidf_71",
+      1.8076851834637147
+    ],
+    [
+      "tfidf_42",
+      1.7773896431731835
+    ],
+    [
+      "tfidf_55",
+      -1.7631150003977933
+    ],
+    [
+      "title_digit_count",
+      1.6864337041800657
+    ],
+    [
+      "title_word_count",
+      -1.6486756481039633
+    ],
+    [
+      "tfidf_24",
+      1.6444639647794272
+    ],
+    [
+      "tfidf_68",
+      1.6145937022443675
+    ],
+    [
+      "tfidf_61",
+      1.4497660418063083
+    ],
+    [
+      "digit_count",
+      -1.4368520115077714
+    ],
+    [
+      "has_subtitle",
+      -1.3787739454078243
+    ],
+    [
+      "tfidf_0",
+      -1.3629808724853876
+    ],
+    [
+      "tfidf_44",
+      1.3123715618531222
+    ]
+  ]
+}

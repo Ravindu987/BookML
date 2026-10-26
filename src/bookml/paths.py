@@ -15,3 +15,5 @@ IMAGES_DIR: Path = DATA_DIR / "images"
 # Results
 RESULTS_DIR: Path = PROJECT_ROOT / "results"
 OVERALL_CSV: Path = PROJECT_ROOT / "results" / "overall.csv"
+FINAL_RESULTS_DIR: Path = RESULTS_DIR / "final"
+FINAL_OVERALL_CSV: Path = FINAL_RESULTS_DIR / "overall.csv"

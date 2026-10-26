@@ -1,0 +1,101 @@
+{
+  "experiment": "lightgbm__multimodal",
+  "timestamp": "2026-10-25T23:51:24",
+  "config": {
+    "name": "lightgbm__multimodal",
+    "feature_set": "multimodal",
+    "features": [
+      "multimodal_concatenated_feature"
+    ],
+    "model": "lightgbm",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.7962795099637205,
+  "best_params": {
+    "colsample_bytree": 0.6,
+    "learning_rate": 0.1,
+    "max_depth": 3,
+    "n_estimators": 100,
+    "num_leaves": 15,
+    "scale_pos_weight": 1.69,
+    "subsample": 0.8
+  },
+  "validation_metrics": {
+    "accuracy": 0.7777777777777778,
+    "precision": 0.8333333333333334,
+    "recall": 0.5,
+    "f1": 0.625,
+    "roc_auc": 0.7941176470588236
+  },
+  "confusion_matrix": {
+    "tp": 5,
+    "tn": 16,
+    "fp": 1,
+    "fn": 5
+  },
+  "top_features": [
+    [
+      "multimodal_concat_252",
+      13.0
+    ],
+    [
+      "multimodal_concat_173",
+      13.0
+    ],
+    [
+      "multimodal_concat_319",
+      11.0
+    ],
+    [
+      "multimodal_concat_91",
+      9.0
+    ],
+    [
+      "multimodal_concat_324",
+      8.0
+    ],
+    [
+      "multimodal_concat_643",
+      8.0
+    ],
+    [
+      "multimodal_concat_323",
+      8.0
+    ],
+    [
+      "multimodal_concat_684",
+      7.0
+    ],
+    [
+      "multimodal_concat_349",
+      7.0
+    ],
+    [
+      "multimodal_concat_212",
+      7.0
+    ],
+    [
+      "multimodal_concat_55",
+      6.0
+    ],
+    [
+      "multimodal_concat_295",
+      6.0
+    ],
+    [
+      "multimodal_concat_150",
+      5.0
+    ],
+    [
+      "multimodal_concat_21",
+      5.0
+    ],
+    [
+      "multimodal_concat_417",
+      5.0
+    ]
+  ]
+}

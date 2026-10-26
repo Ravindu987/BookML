@@ -1,0 +1,101 @@
+{
+  "experiment": "lightgbm__image_basic",
+  "timestamp": "2026-10-25T23:05:23",
+  "config": {
+    "name": "lightgbm__image_basic",
+    "feature_set": "image_basic",
+    "features": [
+      "image_basic_features"
+    ],
+    "model": "lightgbm",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.37609933925723393,
+  "best_params": {
+    "colsample_bytree": 0.8,
+    "learning_rate": 0.1,
+    "max_depth": 4,
+    "n_estimators": 140,
+    "num_leaves": 15,
+    "scale_pos_weight": 1.69,
+    "subsample": 1.0
+  },
+  "validation_metrics": {
+    "accuracy": 0.6296296296296297,
+    "precision": 0.5,
+    "recall": 0.4,
+    "f1": 0.4444444444444444,
+    "roc_auc": 0.5352941176470588
+  },
+  "confusion_matrix": {
+    "tp": 4,
+    "tn": 13,
+    "fp": 4,
+    "fn": 6
+  },
+  "top_features": [
+    [
+      "img_h_mean",
+      38.0
+    ],
+    [
+      "img_s_std",
+      36.0
+    ],
+    [
+      "img_h_std",
+      34.0
+    ],
+    [
+      "img_r_hist_5",
+      34.0
+    ],
+    [
+      "img_b_hist_5",
+      34.0
+    ],
+    [
+      "img_b_hist_7",
+      29.0
+    ],
+    [
+      "img_g_hist_4",
+      28.0
+    ],
+    [
+      "img_r_hist_0",
+      25.0
+    ],
+    [
+      "img_s_mean",
+      25.0
+    ],
+    [
+      "img_g_hist_1",
+      22.0
+    ],
+    [
+      "img_r_hist_3",
+      21.0
+    ],
+    [
+      "img_b_hist_4",
+      20.0
+    ],
+    [
+      "img_r_hist_4",
+      19.0
+    ],
+    [
+      "img_b_std",
+      18.0
+    ],
+    [
+      "img_g_hist_5",
+      18.0
+    ]
+  ]
+}

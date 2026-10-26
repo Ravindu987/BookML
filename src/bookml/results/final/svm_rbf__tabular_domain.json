@@ -1,0 +1,39 @@
+{
+  "experiment": "svm_rbf__tabular_domain",
+  "timestamp": "2026-10-26T00:02:37",
+  "config": {
+    "name": "svm_rbf__tabular_domain",
+    "feature_set": "tabular_domain",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric",
+      "domain_features"
+    ],
+    "model": "svm_rbf",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.8147474747474748,
+  "best_params": {
+    "classifier__C": 100.0,
+    "classifier__class_weight": "balanced",
+    "classifier__gamma": 0.01
+  },
+  "validation_metrics": {
+    "accuracy": 0.8148148148148148,
+    "precision": 0.6666666666666666,
+    "recall": 1.0,
+    "f1": 0.8,
+    "roc_auc": 0.9941176470588236
+  },
+  "confusion_matrix": {
+    "tp": 10,
+    "tn": 12,
+    "fp": 5,
+    "fn": 0
+  },
+  "top_features": []
+}

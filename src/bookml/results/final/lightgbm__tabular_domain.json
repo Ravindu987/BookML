@@ -1,0 +1,104 @@
+{
+  "experiment": "lightgbm__tabular_domain",
+  "timestamp": "2026-10-26T00:00:54",
+  "config": {
+    "name": "lightgbm__tabular_domain",
+    "feature_set": "tabular_domain",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric",
+      "domain_features"
+    ],
+    "model": "lightgbm",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.8012967875036839,
+  "best_params": {
+    "colsample_bytree": 0.6,
+    "learning_rate": 0.03,
+    "max_depth": 3,
+    "n_estimators": 60,
+    "num_leaves": 15,
+    "scale_pos_weight": 1.69,
+    "subsample": 0.8
+  },
+  "validation_metrics": {
+    "accuracy": 0.8148148148148148,
+    "precision": 0.6666666666666666,
+    "recall": 1.0,
+    "f1": 0.8,
+    "roc_auc": 0.8999999999999999
+  },
+  "confusion_matrix": {
+    "tp": 10,
+    "tn": 12,
+    "fp": 5,
+    "fn": 0
+  },
+  "top_features": [
+    [
+      "title_char_len",
+      38.0
+    ],
+    [
+      "digit_count",
+      34.0
+    ],
+    [
+      "has_subtitle",
+      33.0
+    ],
+    [
+      "price",
+      21.0
+    ],
+    [
+      "title_upper_ratio",
+      20.0
+    ],
+    [
+      "quote_count",
+      15.0
+    ],
+    [
+      "title_word_count",
+      13.0
+    ],
+    [
+      "desc_word_count",
+      12.0
+    ],
+    [
+      "availability",
+      11.0
+    ],
+    [
+      "desc_char_len",
+      8.0
+    ],
+    [
+      "rating_num",
+      5.0
+    ],
+    [
+      "total_word_count",
+      4.0
+    ],
+    [
+      "total_char_len",
+      3.0
+    ],
+    [
+      "title_digit_count",
+      1.0
+    ],
+    [
+      "exclamation_count",
+      0.0
+    ]
+  ]
+}

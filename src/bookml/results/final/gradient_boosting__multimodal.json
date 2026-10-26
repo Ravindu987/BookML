@@ -1,0 +1,98 @@
+{
+  "experiment": "gradient_boosting__multimodal",
+  "timestamp": "2026-10-25T23:58:28",
+  "config": {
+    "name": "gradient_boosting__multimodal",
+    "feature_set": "multimodal",
+    "features": [
+      "multimodal_concatenated_feature"
+    ],
+    "model": "gradient_boosting",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.758095238095238,
+  "best_params": {
+    "learning_rate": 0.05,
+    "max_depth": 3,
+    "n_estimators": 140,
+    "subsample": 0.8
+  },
+  "validation_metrics": {
+    "accuracy": 0.7777777777777778,
+    "precision": 0.8333333333333334,
+    "recall": 0.5,
+    "f1": 0.625,
+    "roc_auc": 0.7941176470588235
+  },
+  "confusion_matrix": {
+    "tp": 5,
+    "tn": 16,
+    "fp": 1,
+    "fn": 5
+  },
+  "top_features": [
+    [
+      "multimodal_concat_173",
+      0.12279848117857023
+    ],
+    [
+      "multimodal_concat_252",
+      0.11846916317371396
+    ],
+    [
+      "multimodal_concat_323",
+      0.08010918732906545
+    ],
+    [
+      "multimodal_concat_212",
+      0.036065113583323344
+    ],
+    [
+      "multimodal_concat_143",
+      0.032934192162682896
+    ],
+    [
+      "multimodal_concat_558",
+      0.03177383343190185
+    ],
+    [
+      "multimodal_concat_501",
+      0.028157237769936637
+    ],
+    [
+      "multimodal_concat_28",
+      0.02146084532314245
+    ],
+    [
+      "multimodal_concat_242",
+      0.021355620303262962
+    ],
+    [
+      "multimodal_concat_138",
+      0.016450375678620968
+    ],
+    [
+      "multimodal_concat_91",
+      0.015791274750542057
+    ],
+    [
+      "multimodal_concat_349",
+      0.015730316160374534
+    ],
+    [
+      "multimodal_concat_261",
+      0.012901903643808737
+    ],
+    [
+      "multimodal_concat_152",
+      0.012208861306258546
+    ],
+    [
+      "multimodal_concat_511",
+      0.011501036768581325
+    ]
+  ]
+}

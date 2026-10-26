@@ -1,0 +1,99 @@
+{
+  "experiment": "linear_svm__tabular_tfidf",
+  "timestamp": "2026-10-25T22:26:18",
+  "config": {
+    "name": "linear_svm__tabular_tfidf",
+    "feature_set": "tabular_tfidf",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric",
+      "tfidf"
+    ],
+    "model": "linear_svm",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.7379481311975592,
+  "best_params": {
+    "classifier__C": 0.001,
+    "classifier__class_weight": "balanced"
+  },
+  "validation_metrics": {
+    "accuracy": 0.8518518518518519,
+    "precision": 0.875,
+    "recall": 0.7,
+    "f1": 0.7777777777777778,
+    "roc_auc": 0.8647058823529412
+  },
+  "confusion_matrix": {
+    "tp": 7,
+    "tn": 16,
+    "fp": 1,
+    "fn": 3
+  },
+  "top_features": [
+    [
+      "tfidf_novel",
+      0.051659963458565925
+    ],
+    [
+      "tfidf_forever",
+      0.03196048984262236
+    ],
+    [
+      "tfidf_secret",
+      0.031127609178264296
+    ],
+    [
+      "tfidf_stop",
+      0.025675500736473574
+    ],
+    [
+      "tfidf_heart",
+      0.025440067869845612
+    ],
+    [
+      "tfidf_suffer",
+      0.025217604204885644
+    ],
+    [
+      "tfidf_wife",
+      0.024554955756717678
+    ],
+    [
+      "tfidf_know",
+      0.024277109925335005
+    ],
+    [
+      "tfidf_president",
+      0.02371547071788738
+    ],
+    [
+      "tfidf_inspire",
+      -0.023168229615208712
+    ],
+    [
+      "tfidf_son",
+      0.02290189282475316
+    ],
+    [
+      "tfidf_arrive",
+      0.022800925141069295
+    ],
+    [
+      "tfidf_fall_love",
+      0.021979246114541974
+    ],
+    [
+      "tfidf_unlikely",
+      0.021915868097850913
+    ],
+    [
+      "tfidf_marriage",
+      0.021545335638681114
+    ]
+  ]
+}

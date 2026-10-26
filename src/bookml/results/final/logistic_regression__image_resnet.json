@@ -1,0 +1,96 @@
+{
+  "experiment": "logistic_regression__image_resnet",
+  "timestamp": "2026-10-25T23:23:41",
+  "config": {
+    "name": "logistic_regression__image_resnet",
+    "feature_set": "image_resnet",
+    "features": [
+      "imageResNet18Vector"
+    ],
+    "model": "logistic_regression",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.5561403508771929,
+  "best_params": {
+    "classifier__C": 0.01,
+    "classifier__class_weight": "balanced"
+  },
+  "validation_metrics": {
+    "accuracy": 0.6296296296296297,
+    "precision": 0.5,
+    "recall": 0.6,
+    "f1": 0.5454545454545454,
+    "roc_auc": 0.6705882352941176
+  },
+  "confusion_matrix": {
+    "tp": 6,
+    "tn": 11,
+    "fp": 6,
+    "fn": 4
+  },
+  "top_features": [
+    [
+      "img_resnet18_33",
+      0.10173739492893219
+    ],
+    [
+      "img_resnet18_511",
+      0.07413070648908615
+    ],
+    [
+      "img_resnet18_174",
+      0.07409488409757614
+    ],
+    [
+      "img_resnet18_71",
+      -0.07182227820158005
+    ],
+    [
+      "img_resnet18_113",
+      -0.06768644601106644
+    ],
+    [
+      "img_resnet18_117",
+      -0.06654904037714005
+    ],
+    [
+      "img_resnet18_423",
+      -0.06609594821929932
+    ],
+    [
+      "img_resnet18_453",
+      -0.06239460036158562
+    ],
+    [
+      "img_resnet18_300",
+      -0.06165851652622223
+    ],
+    [
+      "img_resnet18_332",
+      -0.061001889407634735
+    ],
+    [
+      "img_resnet18_134",
+      0.0561341792345047
+    ],
+    [
+      "img_resnet18_426",
+      0.05218067765235901
+    ],
+    [
+      "img_resnet18_175",
+      0.05214153975248337
+    ],
+    [
+      "img_resnet18_183",
+      0.05205751955509186
+    ],
+    [
+      "img_resnet18_466",
+      0.04707513749599457
+    ]
+  ]
+}

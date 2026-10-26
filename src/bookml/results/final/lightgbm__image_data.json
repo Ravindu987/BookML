@@ -1,0 +1,102 @@
+{
+  "experiment": "lightgbm__image_data",
+  "timestamp": "2026-10-25T22:57:39",
+  "config": {
+    "name": "lightgbm__image_data",
+    "feature_set": "image_data",
+    "features": [
+      "image_basic_features",
+      "imageResNet18Vector"
+    ],
+    "model": "lightgbm",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.6155991285403051,
+  "best_params": {
+    "colsample_bytree": 1.0,
+    "learning_rate": 0.05,
+    "max_depth": 3,
+    "n_estimators": 60,
+    "num_leaves": 15,
+    "scale_pos_weight": 1.69,
+    "subsample": 0.8
+  },
+  "validation_metrics": {
+    "accuracy": 0.7037037037037037,
+    "precision": 0.6,
+    "recall": 0.6,
+    "f1": 0.6,
+    "roc_auc": 0.7117647058823529
+  },
+  "confusion_matrix": {
+    "tp": 6,
+    "tn": 13,
+    "fp": 4,
+    "fn": 4
+  },
+  "top_features": [
+    [
+      "img_resnet18_259",
+      11.0
+    ],
+    [
+      "img_resnet18_33",
+      8.0
+    ],
+    [
+      "img_resnet18_65",
+      8.0
+    ],
+    [
+      "img_resnet18_315",
+      6.0
+    ],
+    [
+      "img_resnet18_466",
+      5.0
+    ],
+    [
+      "img_resnet18_492",
+      5.0
+    ],
+    [
+      "img_resnet18_97",
+      4.0
+    ],
+    [
+      "img_resnet18_10",
+      4.0
+    ],
+    [
+      "img_resnet18_174",
+      4.0
+    ],
+    [
+      "img_resnet18_136",
+      4.0
+    ],
+    [
+      "img_resnet18_486",
+      4.0
+    ],
+    [
+      "img_resnet18_483",
+      4.0
+    ],
+    [
+      "img_resnet18_300",
+      4.0
+    ],
+    [
+      "img_resnet18_226",
+      4.0
+    ],
+    [
+      "img_resnet18_190",
+      3.0
+    ]
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "experiment": "linear_svm__tabular_domain_embeddings_image",
+  "timestamp": "2026-10-26T00:35:28",
+  "config": {
+    "name": "linear_svm__tabular_domain_embeddings_image",
+    "feature_set": "tabular_domain_embeddings_image",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric",
+      "domain_features",
+      "sentence_embeddings",
+      "imageResNet18Vector"
+    ],
+    "model": "linear_svm",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.8158518826711048,
+  "best_params": {
+    "classifier__C": 0.001,
+    "classifier__class_weight": "balanced"
+  },
+  "validation_metrics": {
+    "accuracy": 0.7777777777777778,
+    "precision": 0.7,
+    "recall": 0.7,
+    "f1": 0.7,
+    "roc_auc": 0.888235294117647
+  },
+  "confusion_matrix": {
+    "tp": 7,
+    "tn": 14,
+    "fp": 3,
+    "fn": 3
+  },
+  "top_features": [
+    [
+      "has_subtitle",
+      -0.05306252985136439
+    ],
+    [
+      "title_word_count",
+      -0.039871406580826656
+    ],
+    [
+      "title_char_len",
+      -0.03901119727028777
+    ],
+    [
+      "emb_252",
+      -0.028965006133619794
+    ],
+    [
+      "emb_319",
+      -0.027201830500821828
+    ],
+    [
+      "emb_138",
+      -0.02594546091138012
+    ],
+    [
+      "emb_222",
+      0.02525652785548388
+    ],
+    [
+      "emb_121",
+      0.025026914165834677
+    ],
+    [
+      "emb_362",
+      -0.024773190152230787
+    ],
+    [
+      "emb_150",
+      -0.024366777567577765
+    ],
+    [
+      "emb_173",
+      -0.023949776557206592
+    ],
+    [
+      "emb_349",
+      0.023844826049231608
+    ],
+    [
+      "emb_140",
+      -0.021950579817789993
+    ],
+    [
+      "title_digit_count",
+      0.021584322804577585
+    ],
+    [
+      "emb_323",
+      -0.02149947567626306
+    ]
+  ]
+}

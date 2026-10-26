@@ -1,0 +1,34 @@
+{
+  "experiment": "ensemble_stacking__image_basic",
+  "timestamp": "2026-10-25T23:07:46",
+  "config": {
+    "name": "ensemble_stacking__image_basic",
+    "feature_set": "image_basic",
+    "features": [
+      "image_basic_features"
+    ],
+    "model": "ensemble_stacking",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.09019607843137253,
+  "best_params": {
+    "final_estimator__C": 5.0
+  },
+  "validation_metrics": {
+    "accuracy": 0.6296296296296297,
+    "precision": 0.5,
+    "recall": 0.2,
+    "f1": 0.2857142857142857,
+    "roc_auc": 0.5294117647058824
+  },
+  "confusion_matrix": {
+    "tp": 2,
+    "tn": 15,
+    "fp": 2,
+    "fn": 8
+  },
+  "top_features": []
+}

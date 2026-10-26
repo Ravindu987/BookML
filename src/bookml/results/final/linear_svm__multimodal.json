@@ -1,0 +1,96 @@
+{
+  "experiment": "linear_svm__multimodal",
+  "timestamp": "2026-10-25T23:58:34",
+  "config": {
+    "name": "linear_svm__multimodal",
+    "feature_set": "multimodal",
+    "features": [
+      "multimodal_concatenated_feature"
+    ],
+    "model": "linear_svm",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.7917874396135266,
+  "best_params": {
+    "classifier__C": 0.001,
+    "classifier__class_weight": "balanced"
+  },
+  "validation_metrics": {
+    "accuracy": 0.7407407407407407,
+    "precision": 0.6363636363636364,
+    "recall": 0.7,
+    "f1": 0.6666666666666666,
+    "roc_auc": 0.8235294117647058
+  },
+  "confusion_matrix": {
+    "tp": 7,
+    "tn": 13,
+    "fp": 4,
+    "fn": 3
+  },
+  "top_features": [
+    [
+      "multimodal_concat_252",
+      -0.028463730791686865
+    ],
+    [
+      "multimodal_concat_319",
+      -0.02822424999527855
+    ],
+    [
+      "multimodal_concat_138",
+      -0.028010010189393624
+    ],
+    [
+      "multimodal_concat_121",
+      0.026702292333954724
+    ],
+    [
+      "multimodal_concat_222",
+      0.026475935531725333
+    ],
+    [
+      "multimodal_concat_173",
+      -0.026390590734900826
+    ],
+    [
+      "multimodal_concat_362",
+      -0.025240224053561702
+    ],
+    [
+      "multimodal_concat_150",
+      -0.02515786145256288
+    ],
+    [
+      "multimodal_concat_323",
+      -0.024687975697523505
+    ],
+    [
+      "multimodal_concat_242",
+      0.023687101502231436
+    ],
+    [
+      "multimodal_concat_349",
+      0.02339956838725923
+    ],
+    [
+      "multimodal_concat_140",
+      -0.02235410766101533
+    ],
+    [
+      "multimodal_concat_143",
+      0.021896994386421224
+    ],
+    [
+      "multimodal_concat_168",
+      -0.02186525235112496
+    ],
+    [
+      "multimodal_concat_172",
+      -0.02151067514197951
+    ]
+  ]
+}

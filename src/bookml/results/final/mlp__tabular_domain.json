@@ -1,0 +1,40 @@
+{
+  "experiment": "mlp__tabular_domain",
+  "timestamp": "2026-10-26T00:02:15",
+  "config": {
+    "name": "mlp__tabular_domain",
+    "feature_set": "tabular_domain",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric",
+      "domain_features"
+    ],
+    "model": "mlp",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.7793236714975845,
+  "best_params": {
+    "classifier__alpha": 0.001,
+    "classifier__hidden_layer_sizes": [
+      64
+    ]
+  },
+  "validation_metrics": {
+    "accuracy": 0.9259259259259259,
+    "precision": 0.8333333333333334,
+    "recall": 1.0,
+    "f1": 0.9090909090909091,
+    "roc_auc": 1.0
+  },
+  "confusion_matrix": {
+    "tp": 10,
+    "tn": 15,
+    "fp": 2,
+    "fn": 0
+  },
+  "top_features": []
+}

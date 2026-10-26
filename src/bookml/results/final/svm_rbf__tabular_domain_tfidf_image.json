@@ -1,0 +1,41 @@
+{
+  "experiment": "svm_rbf__tabular_domain_tfidf_image",
+  "timestamp": "2026-10-26T00:07:58",
+  "config": {
+    "name": "svm_rbf__tabular_domain_tfidf_image",
+    "feature_set": "tabular_domain_tfidf_image",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric",
+      "domain_features",
+      "tfidf_80",
+      "image_color_features"
+    ],
+    "model": "svm_rbf",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.7728229665071771,
+  "best_params": {
+    "classifier__C": 1.0,
+    "classifier__class_weight": "balanced",
+    "classifier__gamma": "scale"
+  },
+  "validation_metrics": {
+    "accuracy": 0.7777777777777778,
+    "precision": 0.8333333333333334,
+    "recall": 0.5,
+    "f1": 0.625,
+    "roc_auc": 0.9058823529411764
+  },
+  "confusion_matrix": {
+    "tp": 5,
+    "tn": 16,
+    "fp": 1,
+    "fn": 5
+  },
+  "top_features": []
+}

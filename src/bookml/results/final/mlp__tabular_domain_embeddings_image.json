@@ -1,0 +1,42 @@
+{
+  "experiment": "mlp__tabular_domain_embeddings_image",
+  "timestamp": "2026-10-26T00:31:38",
+  "config": {
+    "name": "mlp__tabular_domain_embeddings_image",
+    "feature_set": "tabular_domain_embeddings_image",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric",
+      "domain_features",
+      "sentence_embeddings",
+      "imageResNet18Vector"
+    ],
+    "model": "mlp",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.8026667459161738,
+  "best_params": {
+    "classifier__alpha": 0.001,
+    "classifier__hidden_layer_sizes": [
+      64
+    ]
+  },
+  "validation_metrics": {
+    "accuracy": 0.8148148148148148,
+    "precision": 0.7272727272727273,
+    "recall": 0.8,
+    "f1": 0.7619047619047619,
+    "roc_auc": 0.8764705882352941
+  },
+  "confusion_matrix": {
+    "tp": 8,
+    "tn": 14,
+    "fp": 3,
+    "fn": 2
+  },
+  "top_features": []
+}

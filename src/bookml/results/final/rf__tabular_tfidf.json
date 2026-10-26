@@ -1,0 +1,103 @@
+{
+  "experiment": "rf__tabular_tfidf",
+  "timestamp": "2026-10-25T22:24:55",
+  "config": {
+    "name": "rf__tabular_tfidf",
+    "feature_set": "tabular_tfidf",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric",
+      "tfidf"
+    ],
+    "model": "rf",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.7638277511961723,
+  "best_params": {
+    "class_weight": "balanced",
+    "max_depth": null,
+    "max_features": "sqrt",
+    "min_samples_leaf": 1,
+    "min_samples_split": 5,
+    "n_estimators": 100
+  },
+  "validation_metrics": {
+    "accuracy": 0.8148148148148148,
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1": 0.6666666666666666,
+    "roc_auc": 0.8352941176470587
+  },
+  "confusion_matrix": {
+    "tp": 5,
+    "tn": 17,
+    "fp": 0,
+    "fn": 5
+  },
+  "top_features": [
+    [
+      "tfidf_novel",
+      0.04268074819858086
+    ],
+    [
+      "tfidf_family",
+      0.018266127714780846
+    ],
+    [
+      "tfidf_book",
+      0.017829712702759053
+    ],
+    [
+      "tfidf_forever",
+      0.013380653747010283
+    ],
+    [
+      "tfidf_secret",
+      0.011549095211609517
+    ],
+    [
+      "tfidf_heart",
+      0.010621614088944575
+    ],
+    [
+      "tfidf_suffer",
+      0.010449411475706582
+    ],
+    [
+      "tfidf_inspire",
+      0.009753904501916304
+    ],
+    [
+      "tfidf_love",
+      0.009427805155537658
+    ],
+    [
+      "tfidf_know",
+      0.009114438519939243
+    ],
+    [
+      "tfidf_stop",
+      0.009052183839417735
+    ],
+    [
+      "price",
+      0.008747190279655054
+    ],
+    [
+      "tfidf_daughter",
+      0.008558147233063211
+    ],
+    [
+      "tfidf_night",
+      0.008375206331615816
+    ],
+    [
+      "tfidf_year",
+      0.008276110772411653
+    ]
+  ]
+}

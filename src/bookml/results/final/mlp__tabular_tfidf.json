@@ -1,0 +1,41 @@
+{
+  "experiment": "mlp__tabular_tfidf",
+  "timestamp": "2026-10-25T22:25:01",
+  "config": {
+    "name": "mlp__tabular_tfidf",
+    "feature_set": "tabular_tfidf",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric",
+      "tfidf"
+    ],
+    "model": "mlp",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.6671025389560858,
+  "best_params": {
+    "classifier__alpha": 0.01,
+    "classifier__hidden_layer_sizes": [
+      64,
+      32
+    ]
+  },
+  "validation_metrics": {
+    "accuracy": 0.7777777777777778,
+    "precision": 0.8333333333333334,
+    "recall": 0.5,
+    "f1": 0.625,
+    "roc_auc": 0.8176470588235294
+  },
+  "confusion_matrix": {
+    "tp": 5,
+    "tn": 16,
+    "fp": 1,
+    "fn": 5
+  },
+  "top_features": []
+}

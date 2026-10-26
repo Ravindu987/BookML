@@ -1,3 +1,8 @@
 from .recipes import EXPERIMENTS
+from .recipes_final import (
+    FINAL_EXPERIMENTS,
+    FINAL_FEATURE_SETS,
+    FINAL_MODELS,
+)
 
-__all__ = ["EXPERIMENTS"]
+__all__ = ["EXPERIMENTS", "FINAL_EXPERIMENTS", "FINAL_FEATURE_SETS", "FINAL_MODELS"]

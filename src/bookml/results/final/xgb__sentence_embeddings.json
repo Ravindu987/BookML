@@ -1,0 +1,100 @@
+{
+  "experiment": "xgb__sentence_embeddings",
+  "timestamp": "2026-10-25T22:34:39",
+  "config": {
+    "name": "xgb__sentence_embeddings",
+    "feature_set": "sentence_embeddings",
+    "features": [
+      "sentence_embeddings"
+    ],
+    "model": "xgb",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.7925814536340853,
+  "best_params": {
+    "colsample_bytree": 0.8,
+    "learning_rate": 0.1,
+    "max_depth": 3,
+    "n_estimators": 140,
+    "scale_pos_weight": 1.0,
+    "subsample": 0.8
+  },
+  "validation_metrics": {
+    "accuracy": 0.7777777777777778,
+    "precision": 0.8333333333333334,
+    "recall": 0.5,
+    "f1": 0.625,
+    "roc_auc": 0.7764705882352941
+  },
+  "confusion_matrix": {
+    "tp": 5,
+    "tn": 16,
+    "fp": 1,
+    "fn": 5
+  },
+  "top_features": [
+    [
+      "emb_348",
+      0.04440091550350189
+    ],
+    [
+      "emb_257",
+      0.029768334701657295
+    ],
+    [
+      "emb_262",
+      0.02951388992369175
+    ],
+    [
+      "emb_27",
+      0.026925964280962944
+    ],
+    [
+      "emb_73",
+      0.02534409612417221
+    ],
+    [
+      "emb_211",
+      0.02288477122783661
+    ],
+    [
+      "emb_4",
+      0.02228078618645668
+    ],
+    [
+      "emb_121",
+      0.021612318232655525
+    ],
+    [
+      "emb_53",
+      0.020396430045366287
+    ],
+    [
+      "emb_253",
+      0.02030961588025093
+    ],
+    [
+      "emb_333",
+      0.01982196606695652
+    ],
+    [
+      "emb_87",
+      0.01907353475689888
+    ],
+    [
+      "emb_258",
+      0.01906549744307995
+    ],
+    [
+      "emb_323",
+      0.018323678523302078
+    ],
+    [
+      "emb_261",
+      0.01829170063138008
+    ]
+  ]
+}

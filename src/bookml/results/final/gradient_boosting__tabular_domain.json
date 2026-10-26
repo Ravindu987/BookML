@@ -1,0 +1,101 @@
+{
+  "experiment": "gradient_boosting__tabular_domain",
+  "timestamp": "2026-10-26T00:02:35",
+  "config": {
+    "name": "gradient_boosting__tabular_domain",
+    "feature_set": "tabular_domain",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric",
+      "domain_features"
+    ],
+    "model": "gradient_boosting",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.7821987577639751,
+  "best_params": {
+    "learning_rate": 0.05,
+    "max_depth": 4,
+    "n_estimators": 140,
+    "subsample": 0.8
+  },
+  "validation_metrics": {
+    "accuracy": 0.8888888888888888,
+    "precision": 0.8181818181818182,
+    "recall": 0.9,
+    "f1": 0.8571428571428571,
+    "roc_auc": 0.9470588235294117
+  },
+  "confusion_matrix": {
+    "tp": 9,
+    "tn": 15,
+    "fp": 2,
+    "fn": 1
+  },
+  "top_features": [
+    [
+      "has_subtitle",
+      0.3797199735590336
+    ],
+    [
+      "title_char_len",
+      0.1251408584768098
+    ],
+    [
+      "digit_count",
+      0.10641821453498453
+    ],
+    [
+      "price",
+      0.06870337925573208
+    ],
+    [
+      "title_upper_ratio",
+      0.05806457530738325
+    ],
+    [
+      "desc_char_len",
+      0.03981306944188722
+    ],
+    [
+      "desc_word_count",
+      0.03723470958329584
+    ],
+    [
+      "title_word_count",
+      0.036692541330176055
+    ],
+    [
+      "availability",
+      0.03517232759144938
+    ],
+    [
+      "total_char_len",
+      0.031541778712723886
+    ],
+    [
+      "quote_count",
+      0.025505577531727802
+    ],
+    [
+      "total_word_count",
+      0.024756569916082466
+    ],
+    [
+      "rating_num",
+      0.019203882177408274
+    ],
+    [
+      "title_digit_count",
+      0.011938759641174298
+    ],
+    [
+      "exclamation_count",
+      9.378294013123755e-05
+    ]
+  ]
+}

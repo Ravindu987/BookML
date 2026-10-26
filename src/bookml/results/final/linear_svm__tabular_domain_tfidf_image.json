@@ -1,0 +1,101 @@
+{
+  "experiment": "linear_svm__tabular_domain_tfidf_image",
+  "timestamp": "2026-10-26T00:07:59",
+  "config": {
+    "name": "linear_svm__tabular_domain_tfidf_image",
+    "feature_set": "tabular_domain_tfidf_image",
+    "features": [
+      "price",
+      "availability",
+      "rating_numeric",
+      "domain_features",
+      "tfidf_80",
+      "image_color_features"
+    ],
+    "model": "linear_svm",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.8332431870189309,
+  "best_params": {
+    "classifier__C": 0.01,
+    "classifier__class_weight": null
+  },
+  "validation_metrics": {
+    "accuracy": 0.7407407407407407,
+    "precision": 0.6363636363636364,
+    "recall": 0.7,
+    "f1": 0.6666666666666666,
+    "roc_auc": 0.8352941176470587
+  },
+  "confusion_matrix": {
+    "tp": 7,
+    "tn": 13,
+    "fp": 4,
+    "fn": 3
+  },
+  "top_features": [
+    [
+      "has_subtitle",
+      -0.2549388216731086
+    ],
+    [
+      "tfidf_48",
+      0.19079572418898638
+    ],
+    [
+      "title_word_count",
+      -0.14927691656079636
+    ],
+    [
+      "title_char_len",
+      -0.1420130774003197
+    ],
+    [
+      "tfidf_58",
+      0.12163677738459788
+    ],
+    [
+      "digit_count",
+      -0.12059690838097195
+    ],
+    [
+      "img_color_21",
+      0.12055109011574928
+    ],
+    [
+      "tfidf_0",
+      -0.11412841338854354
+    ],
+    [
+      "img_color_38",
+      0.10823069624928607
+    ],
+    [
+      "tfidf_71",
+      0.10648994752985882
+    ],
+    [
+      "tfidf_59",
+      -0.0888908975843526
+    ],
+    [
+      "tfidf_55",
+      -0.08766760008656102
+    ],
+    [
+      "tfidf_13",
+      0.08713849358327008
+    ],
+    [
+      "tfidf_68",
+      0.0862388641626321
+    ],
+    [
+      "tfidf_74",
+      -0.08548217349023243
+    ]
+  ]
+}

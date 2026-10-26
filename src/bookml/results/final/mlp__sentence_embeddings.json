@@ -1,0 +1,38 @@
+{
+  "experiment": "mlp__sentence_embeddings",
+  "timestamp": "2026-10-25T22:39:17",
+  "config": {
+    "name": "mlp__sentence_embeddings",
+    "feature_set": "sentence_embeddings",
+    "features": [
+      "sentence_embeddings"
+    ],
+    "model": "mlp",
+    "model_params": {
+      "tune": true,
+      "random_state": 41
+    }
+  },
+  "cv_best_score": 0.7508020050125314,
+  "best_params": {
+    "classifier__alpha": 0.001,
+    "classifier__hidden_layer_sizes": [
+      64,
+      32
+    ]
+  },
+  "validation_metrics": {
+    "accuracy": 0.7407407407407407,
+    "precision": 0.6666666666666666,
+    "recall": 0.6,
+    "f1": 0.631578947368421,
+    "roc_auc": 0.8058823529411765
+  },
+  "confusion_matrix": {
+    "tp": 6,
+    "tn": 14,
+    "fp": 3,
+    "fn": 4
+  },
+  "top_features": []
+}

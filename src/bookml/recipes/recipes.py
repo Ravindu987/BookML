@@ -33,8 +33,6 @@ EXPERIMENTS: dict[str, dict[str, Any]] = {
         "model": "lightgbm",
         "model_params": {"tune": True, "random_state": 41},
     },
-
-
     "xgb_embeddings": {
         "name": "xgb_embeddings",
         "features": ["sentence_embeddings"],
